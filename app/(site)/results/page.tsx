@@ -1,106 +1,96 @@
 import Tabs from "@/components/Tabs";
-import { computeBCS, defaultPace, recommendedNapBlocks } from "@/lib/bcsEngine";
-import cities from "@/data/cities.json";
-import bcsData from "@/data/bcs_pillars.json";
-import hotels from "@/data/hotels.json";
-import safety from "@/data/safety_contacts.json";
-import packing from "@/data/packing_templates.json";
-import products from "@/data/products.json";
+import { computeBCS } from "@/lib/bcsEngine";
 
-type SP = Record<string, string>;
-function getDestId(city: string) {
-  const slug = city.trim().toLowerCase().replace(/\s+/g, "_");
-  const found = (cities as any[]).find(c => c.city.toLowerCase() === city.toLowerCase());
-  return found?.destination_id || slug;
+async function fetchDetails(placeId: string){
+  try{
+    const r = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/places/details?placeId=${encodeURIComponent(placeId)}`, { cache: "no-store" });
+    if (!r.ok) return null;
+    return await r.json();
+  }catch{
+    return null;
+  }
 }
-export default function ResultsPage({ searchParams }: { searchParams: SP }) {
-  const { from = "", to = "", depart = "", ret = "", travellers = "2", childAge = "7-12m", directOnly = "true" } = searchParams;
-  const destId = getDestId(to || "");
-  const pillarsEntry = (bcsData as any[]).find(e => e.destination_id === destId);
-  const pillars = pillarsEntry?.pillars || { healthcare: 75, hygiene: 75, accessibility: 70, stimulation: 40, transit: 40, climate: 70 };
-  const bcs = computeBCS(pillars, childAge as any);
-  const cityInfo = (cities as any[]).find(c => c.destination_id === destId);
-  const cityCountry = cityInfo ? `${cityInfo.city}, ${cityInfo.country}` : to;
+
+export default async function ResultsPage({ searchParams }: { searchParams: { [k: string]: string | string[] | undefined } }){
+  const q = Object.fromEntries(Object.entries(searchParams).map(([k,v])=>[k, Array.isArray(v)? v[0] : (v ?? "")]));
+  const fromText = q.from || "";
+  const toText = q.to || "";
+  const fromId = q.fromId || "";
+  const toId = q.toId || "";
+  const depart = q.depart || "";
+  const ret = q.ret || "";
+  const age = q.childAge || "7-12m";
+  const directOnly = (q.directOnly || "true") === "true";
+  const travellers = parseInt(q.travellers || "2");
+
+  let toDetails: any = null;
+  if (toId) toDetails = await fetchDetails(toId as string);
+
+  const country = toDetails?.result?.address_components?.find((c:any)=>c.types?.includes("country"))?.long_name || "";
+  const lat = toDetails?.result?.geometry?.location?.lat ?? null;
+  const lng = toDetails?.result?.geometry?.location?.lng ?? null;
+
+  const bcs = computeBCS({
+    age: age as string,
+    directOnly,
+    country
+  });
+
   const tabs = [
-    { key: "itinerary", label: "Itinerary", content: (
-      <div className="space-y-3">
-        <p className="text-sm">BCS: <strong>{bcs.score}</strong> <span className="ml-2 rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-indigo-700">{bcs.tag}</span></p>
-        <ul className="list-disc pl-6 text-sm text-gray-700">{bcs.rationale.map((r, i) => <li key={i}>{r}</li>)}</ul>
-        <div className="grid gap-3 md:grid-cols-3">
-          {["Day 1","Day 2","Day 3"].map((d, i) => (
-            <div key={i} className="rounded-lg border bg-white p-3">
-              <h3 className="font-semibold">{d}</h3>
-              <ul className="mt-2 text-sm">
-                <li>Stroller-friendly activity</li>
-                <li>{recommendedNapBlocks(childAge as any)}× nap blocks</li>
-                <li>Pace: {defaultPace(childAge as any)}</li>
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-    )},
-    { key: "hotels", label: "Hotels", content: (
-      <div className="grid gap-3 md:grid-cols-2">
-        {(hotels as any[]).filter(h => h.destination_id === destId).map(h => (
-          <div key={h.hotel_id} className="rounded-lg border bg-white p-3">
-            <h3 className="font-semibold">{h.name}</h3>
-            <p className="text-sm text-gray-600">Tier: {h.price_tier} · Clinic proximity: {h.distance_to_pediatric_clinic_km}km</p>
-            <ul className="mt-2 text-sm">{Object.entries(h.amenities).map(([k, v]) => v ? <li key={k}>✓ {k.replaceAll("_"," ")}</li> : null)}</ul>
-          </div>
-        ))}
-      </div>
-    )},
-    { key: "safety", label: "Safety", content: (
-      <div className="space-y-2">
-        <p className="text-sm">Emergency: <strong>{cityInfo?.local_emergency_number || "112/911"}</strong></p>
-        <div className="grid gap-3 md:grid-cols-2">
-          {(safety as any[]).find(s => s.destination_id === destId)?.clinics?.map((c: any, idx: number) => (
-            <div key={idx} className="rounded-lg border bg-white p-3 text-sm">
-              <h4 className="font-semibold">{c.name}</h4>
-              <p>{c.address}</p>
-              <p>{c.phone} {c.speaks_english ? "· English OK" : ""}</p>
-              <a className="text-indigo-600 underline" href={c.map_link}>Map</a>
-            </div>
-          )) || <p className="text-sm text-gray-600">No clinics data yet.</p>}
-        </div>
-      </div>
-    )},
-    { key: "packing", label: "Packing", content: (
-      <div className="space-y-2">
-        {(packing as any[]).filter(p => p.season === "Mild").map((t) => (
-          <div key={t.template_id} className="rounded-lg border bg-white p-3">
-            <h4 className="font-semibold">{t.season} • {t.age_band}</h4>
-            <ul className="mt-2 text-sm list-disc pl-6">{t.items.map((it: any, idx: number) => <li key={idx}>{it.name}{it.mandatory ? " • must-have" : ""}</li>)}</ul>
-          </div>
-        ))}
-      </div>
-    )},
-    { key: "products", label: "Products", content: (
-      <div className="grid gap-3 md:grid-cols-2">
-        {(products as any[]).filter(p => (cityInfo?.country === "India" ? p.region_codes.includes("IN") : true)).map(prod => (
-          <a key={prod.product_id} className="rounded-lg border bg-white p-3 block hover:shadow" href={prod.url}>
-            <h4 className="font-semibold">{prod.name}</h4>
-            <p className="text-sm">{prod.retailer} · {prod.price_currency} {prod.price_value}</p>
-          </a>
-        ))}
-      </div>
-    )}
+    { id: "itinerary", label: "Itinerary" },
+    { id: "hotels", label: "Hotels" },
+    { id: "safety", label: "Safety" },
+    { id: "packing", label: "Packing" },
+    { id: "products", label: "Products" },
   ];
+
   return (
-    <section className="space-y-3">
-      <div className="rounded-xl border bg-white p-4 shadow">
-        <h2 className="text-xl font-bold">Results — {cityCountry}</h2>
+    <section className="mx-auto max-w-6xl space-y-4 p-4">
+      <div className="rounded-2xl border bg-white p-4">
+        <h1 className="text-xl font-semibold">Results — {toText || "Destination"}</h1>
         <p className="text-sm text-gray-600">
-          From <strong>{from}</strong> to <strong>{to}</strong>
-          {depart && <> · Depart {depart}</>}
-          {ret && <> · Return {ret}</>}
-          {travellers && <> · Travellers {travellers}</>}
-          {childAge && <> · Age {childAge}</>}
-          {directOnly && directOnly !== "false" && <> · Direct only</>}
+          From <b>{fromText || "Origin"}</b> · Depart {depart || "—"} · Return {ret || "—"} · Travellers {travellers} · Age {age} · {directOnly ? "Direct only" : "Any flights"}
         </p>
+        {lat && lng ? <p className="mt-1 text-xs text-gray-500">Coords: {lat}, {lng}{country?` · ${country}`:""}</p> : null}
       </div>
-      <Tabs tabs={tabs} />
+
+      <Tabs tabs={tabs}>
+        <div>
+          <p className="text-sm">BCS: <b>{bcs.total}</b> · Pace: <b>{bcs.pace}</b> · Nap blocks/day: <b>{bcs.napBlocks}</b></p>
+          <ul className="mt-2 list-disc pl-6 text-sm">
+            {bcs.breakdown.map(b=>(<li key={b.label}>{b.label} {b.score}/100</li>))}
+          </ul>
+          <div className="mt-3 grid gap-3 md:grid-cols-3">
+            <div className="rounded-xl border p-3"><h3 className="font-medium">Day 1</h3><p>Stroller‑friendly activity</p><p>Pace: {bcs.pace}</p></div>
+            <div className="rounded-xl border p-3"><h3 className="font-medium">Day 2</h3><p>Low‑stim museum / park</p><p>Pace: {bcs.pace}</p></div>
+            <div className="rounded-xl border p-3"><h3 className="font-medium">Day 3</h3><p>Short transit, playground</p><p>Pace: {bcs.pace}</p></div>
+          </div>
+        </div>
+        <div>
+          <p className="text-sm text-gray-600">Sample hotels data to be wired to Google Hotels API.</p>
+          <ul className="mt-2 list-disc pl-6 text-sm">
+            <li>Cribs/cots guaranteed · Blackout curtains</li>
+            <li>Connecting rooms available</li>
+          </ul>
+        </div>
+        <div>
+          <p className="text-sm">Local emergency numbers vary. EU: 112 · US: 911</p>
+          <p className="text-xs text-gray-600">Add pediatric clinics & pharmacies dataset here.</p>
+        </div>
+        <div>
+          <p className="text-sm">Packing list adapts to age: {age} and pace: {bcs.pace}. Example:</p>
+          <ul className="mt-2 list-disc pl-6 text-sm">
+            <li>Sterilizing bags · Bottle brush</li>
+            <li>White noise · Swaddles</li>
+          </ul>
+        </div>
+        <div>
+          <ul className="list-disc pl-6 text-sm">
+            <li>Travel bottle brush — Amazon</li>
+            <li>Sterilizer bags — FirstCry</li>
+          </ul>
+        </div>
+      </Tabs>
     </section>
   );
 }

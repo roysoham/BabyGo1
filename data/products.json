@@ -1,49 +1,10 @@
 [
   {
-    "product_id": "p_fc_sterilizer_bags",
-    "name": "Sterilizer Bags (Travel)",
-    "category": "Care",
-    "age_min": 0,
-    "age_max": 36,
-    "retailer": "FirstCry",
-    "region_codes": [
-      "IN"
-    ],
-    "price_currency": "INR",
-    "price_value": 399,
-    "url": "https://firstcry.com/...",
-    "image_url": "https://example.com/sterilizer.jpg"
+    "name": "Travel bottle brush",
+    "store": "Amazon"
   },
   {
-    "product_id": "p_amazon_bottle_brush",
-    "name": "Bottle Brush Travel",
-    "category": "Feeding",
-    "age_min": 0,
-    "age_max": 24,
-    "retailer": "Amazon",
-    "region_codes": [
-      "US",
-      "UK",
-      "DE"
-    ],
-    "price_currency": "USD",
-    "price_value": 12.99,
-    "url": "https://amazon.com/...",
-    "image_url": "https://example.com/bottlebrush.jpg"
-  },
-  {
-    "product_id": "p_boots_mineral_sunscreen",
-    "name": "Mineral Sunscreen (Baby)",
-    "category": "Care",
-    "age_min": 6,
-    "age_max": 60,
-    "retailer": "Boots",
-    "region_codes": [
-      "UK"
-    ],
-    "price_currency": "GBP",
-    "price_value": 8.5,
-    "url": "https://boots.com/...",
-    "image_url": "https://example.com/sunscreen.jpg"
+    "name": "Sterilizer bags",
+    "store": "FirstCry"
   }
 ]

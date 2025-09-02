@@ -1,51 +1,25 @@
-[
-  {
-    "template_id": "mild_0_6m",
-    "season": "Mild",
-    "age_band": "0-6m",
-    "items": [
-      {
-        "name": "Sterilizing bags",
-        "mandatory": true,
-        "bundle_key": "feeding"
-      },
-      {
-        "name": "Bottle brush",
-        "mandatory": true,
-        "bundle_key": "feeding"
-      },
-      {
-        "name": "Swaddles",
-        "mandatory": true,
-        "bundle_key": "sleep"
-      },
-      {
-        "name": "Portable white noise",
-        "mandatory": false,
-        "bundle_key": "sleep"
-      }
-    ]
-  },
-  {
-    "template_id": "hot_1_3y",
-    "season": "Hot",
-    "age_band": "1-3y",
-    "items": [
-      {
-        "name": "Sun hat",
-        "mandatory": true,
-        "bundle_key": "on_the_go"
-      },
-      {
-        "name": "Mineral sunscreen (baby)",
-        "mandatory": true,
-        "bundle_key": "care"
-      },
-      {
-        "name": "Cooling wipes",
-        "mandatory": false,
-        "bundle_key": "care"
-      }
-    ]
-  }
-]
+{
+  "0-3m": [
+    "Sterilizing bags",
+    "Bottle brush",
+    "Swaddles",
+    "Portable white noise"
+  ],
+  "4-6m": [
+    "Sterilizing bags",
+    "Bottle brush",
+    "Teethers"
+  ],
+  "7-12m": [
+    "Sippy cups",
+    "Compact stroller"
+  ],
+  "1-3y": [
+    "Snacks",
+    "Stroller rain cover"
+  ],
+  "3-5y": [
+    "Coloring kit",
+    "Child headphones"
+  ]
+}

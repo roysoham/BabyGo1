@@ -1,48 +1,17 @@
 [
   {
-    "destination_id": "paris_fr",
-    "city": "Paris",
-    "country": "France",
-    "continent": "Europe",
-    "lat": 48.8566,
-    "lng": 2.3522,
-    "primary_airports": [
-      "CDG",
-      "ORY"
-    ],
-    "local_emergency_number": "112",
-    "dominant_language": "French",
-    "is_tap_water_potable": true
+    "name": "Tokyo",
+    "country": "Japan",
+    "code": "TYO"
   },
   {
-    "destination_id": "london_gb",
-    "city": "London",
+    "name": "London",
     "country": "United Kingdom",
-    "continent": "Europe",
-    "lat": 51.5074,
-    "lng": -0.1278,
-    "primary_airports": [
-      "LHR",
-      "LGW",
-      "LCY",
-      "STN"
-    ],
-    "local_emergency_number": "999 / 112",
-    "dominant_language": "English",
-    "is_tap_water_potable": true
+    "code": "LON"
   },
   {
-    "destination_id": "singapore_sg",
-    "city": "Singapore",
+    "name": "Singapore",
     "country": "Singapore",
-    "continent": "Asia",
-    "lat": 1.3521,
-    "lng": 103.8198,
-    "primary_airports": [
-      "SIN"
-    ],
-    "local_emergency_number": "995 / 999",
-    "dominant_language": "English",
-    "is_tap_water_potable": true
+    "code": "SIN"
   }
 ]

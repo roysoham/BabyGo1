@@ -1,65 +1,18 @@
 [
   {
-    "hotel_id": "h_paris_1",
-    "name": "Hotel Lumi\u00e8re",
-    "destination_id": "paris_fr",
-    "price_tier": "$$",
-    "amenities": {
-      "crib": true,
-      "blackout_curtains": true,
-      "connecting_rooms": false,
-      "kettle_or_microwave": true,
-      "quiet_floor": true,
-      "stroller_friendly": true
-    },
-    "geo": {
-      "lat": 48.86,
-      "lng": 2.35
-    },
-    "distance_to_pediatric_clinic_km": 0.6,
-    "bcs_bias": 3,
-    "source": "mock"
+    "city": "Tokyo",
+    "name": "BabyGo Hotel Tokyo",
+    "cribs": true,
+    "blackout": true,
+    "connecting": true,
+    "priceTier": "$$$"
   },
   {
-    "hotel_id": "h_london_1",
-    "name": "The Quiet Borough",
-    "destination_id": "london_gb",
-    "price_tier": "$$",
-    "amenities": {
-      "crib": true,
-      "blackout_curtains": true,
-      "connecting_rooms": true,
-      "kettle_or_microwave": true,
-      "quiet_floor": true,
-      "stroller_friendly": true
-    },
-    "geo": {
-      "lat": 51.51,
-      "lng": -0.12
-    },
-    "distance_to_pediatric_clinic_km": 0.5,
-    "bcs_bias": 4,
-    "source": "mock"
-  },
-  {
-    "hotel_id": "h_singapore_1",
-    "name": "Marina Nap View",
-    "destination_id": "singapore_sg",
-    "price_tier": "$$$",
-    "amenities": {
-      "crib": true,
-      "blackout_curtains": true,
-      "connecting_rooms": true,
-      "kettle_or_microwave": true,
-      "quiet_floor": true,
-      "stroller_friendly": true
-    },
-    "geo": {
-      "lat": 1.28,
-      "lng": 103.86
-    },
-    "distance_to_pediatric_clinic_km": 0.8,
-    "bcs_bias": 5,
-    "source": "mock"
+    "city": "London",
+    "name": "Family Suites London",
+    "cribs": true,
+    "blackout": true,
+    "connecting": true,
+    "priceTier": "$$"
   }
 ]
