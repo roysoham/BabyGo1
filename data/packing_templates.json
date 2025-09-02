@@ -1,0 +1,51 @@
+[
+  {
+    "template_id": "mild_0_6m",
+    "season": "Mild",
+    "age_band": "0-6m",
+    "items": [
+      {
+        "name": "Sterilizing bags",
+        "mandatory": true,
+        "bundle_key": "feeding"
+      },
+      {
+        "name": "Bottle brush",
+        "mandatory": true,
+        "bundle_key": "feeding"
+      },
+      {
+        "name": "Swaddles",
+        "mandatory": true,
+        "bundle_key": "sleep"
+      },
+      {
+        "name": "Portable white noise",
+        "mandatory": false,
+        "bundle_key": "sleep"
+      }
+    ]
+  },
+  {
+    "template_id": "hot_1_3y",
+    "season": "Hot",
+    "age_band": "1-3y",
+    "items": [
+      {
+        "name": "Sun hat",
+        "mandatory": true,
+        "bundle_key": "on_the_go"
+      },
+      {
+        "name": "Mineral sunscreen (baby)",
+        "mandatory": true,
+        "bundle_key": "care"
+      },
+      {
+        "name": "Cooling wipes",
+        "mandatory": false,
+        "bundle_key": "care"
+      }
+    ]
+  }
+]

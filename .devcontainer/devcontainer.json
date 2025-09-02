@@ -1,0 +1,6 @@
+{
+  "name": "BabyGov1",
+  "features": { "ghcr.io/devcontainers/features/node:1": { "version": "20" } },
+  "postCreateCommand": "npm install",
+  "portsAttributes": { "3000": { "label": "Next.js Dev Server", "onAutoForward": "openPreview" } }
+}

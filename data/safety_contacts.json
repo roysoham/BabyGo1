@@ -1,0 +1,41 @@
+[
+  {
+    "destination_id": "paris_fr",
+    "clinics": [
+      {
+        "name": "Clinique Enfants",
+        "address": "12 Rue Paris",
+        "phone": "+33 1 23 45 67",
+        "speaks_english": true,
+        "map_link": "https://maps.google.com/?q=Paris+Clinic"
+      }
+    ],
+    "emergency_number": "112"
+  },
+  {
+    "destination_id": "london_gb",
+    "clinics": [
+      {
+        "name": "St Mary Pediatric",
+        "address": "10 London Rd",
+        "phone": "+44 20 1234 5678",
+        "speaks_english": true,
+        "map_link": "https://maps.google.com/?q=London+Pediatric"
+      }
+    ],
+    "emergency_number": "999 / 112"
+  },
+  {
+    "destination_id": "singapore_sg",
+    "clinics": [
+      {
+        "name": "KK Children",
+        "address": "100 Bukit Timah",
+        "phone": "+65 6123 4567",
+        "speaks_english": true,
+        "map_link": "https://maps.google.com/?q=KK+Children"
+      }
+    ],
+    "emergency_number": "995 / 999"
+  }
+]

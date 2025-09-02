@@ -1,0 +1,38 @@
+[
+  {
+    "destination_id": "paris_fr",
+    "pillars": {
+      "healthcare": 82,
+      "hygiene": 78,
+      "accessibility": 74,
+      "stimulation": 35,
+      "transit": 40,
+      "climate": 70
+    },
+    "notes": "demo"
+  },
+  {
+    "destination_id": "london_gb",
+    "pillars": {
+      "healthcare": 88,
+      "hygiene": 80,
+      "accessibility": 85,
+      "stimulation": 45,
+      "transit": 30,
+      "climate": 60
+    },
+    "notes": "demo"
+  },
+  {
+    "destination_id": "singapore_sg",
+    "pillars": {
+      "healthcare": 90,
+      "hygiene": 92,
+      "accessibility": 88,
+      "stimulation": 30,
+      "transit": 25,
+      "climate": 75
+    },
+    "notes": "demo"
+  }
+]
