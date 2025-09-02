@@ -1,4 +1,13 @@
 import Tabs from "@/components/Tabs";
+import ResultsHeader from "@/components/ResultsHeader";
+import HotelsList from "@/components/HotelsList";
+import SafetyList from "@/components/SafetyList";
+import PackingList from "@/components/PackingList";
+import ProductsList from "@/components/ProductsList";
+import hotelsData from "@/data/hotels.json";
+import safetyData from "@/data/safety_contacts.json";
+import packingTemplates from "@/data/packing_templates.json";
+import productsData from "@/data/products.json";
 import { computeBCS } from "@/lib/bcsEngine";
 
 async function fetchDetails(placeId: string){
@@ -25,16 +34,11 @@ export default async function ResultsPage({ searchParams }: { searchParams: { [k
 
   let toDetails: any = null;
   if (toId) toDetails = await fetchDetails(toId as string);
-
   const country = toDetails?.result?.address_components?.find((c:any)=>c.types?.includes("country"))?.long_name || "";
   const lat = toDetails?.result?.geometry?.location?.lat ?? null;
   const lng = toDetails?.result?.geometry?.location?.lng ?? null;
 
-  const bcs = computeBCS({
-    age: age as string,
-    directOnly,
-    country
-  });
+  const bcs = computeBCS({ age: age as string, directOnly, country });
 
   const tabs = [
     { id: "itinerary", label: "Itinerary" },
@@ -44,17 +48,18 @@ export default async function ResultsPage({ searchParams }: { searchParams: { [k
     { id: "products", label: "Products" },
   ];
 
+  const hotels = (hotelsData as any[]).filter(h => !toText || h.city.toLowerCase() === String(toText).toLowerCase());
+  const safety = (safetyData as any[]).filter(s => !toText || s.city.toLowerCase() === String(toText).toLowerCase());
+
   return (
     <section className="mx-auto max-w-6xl space-y-4 p-4">
-      <div className="rounded-2xl border bg-white p-4">
-        <h1 className="text-xl font-semibold">Results — {toText || "Destination"}</h1>
-        <p className="text-sm text-gray-600">
-          From <b>{fromText || "Origin"}</b> · Depart {depart || "—"} · Return {ret || "—"} · Travellers {travellers} · Age {age} · {directOnly ? "Direct only" : "Any flights"}
-        </p>
-        {lat && lng ? <p className="mt-1 text-xs text-gray-500">Coords: {lat}, {lng}{country?` · ${country}`:""}</p> : null}
-      </div>
-
+      <ResultsHeader
+        title={`Results — ${toText || "Destination"}`}
+        subtitle={`From ${fromText || "Origin"} · Depart ${depart || "—"} · Return ${ret || "—"} · Travellers ${travellers} · Age ${age} · ${directOnly ? "Direct only" : "Any flights"}`}
+        coords={lat && lng ? {lat, lng} : null}
+      />
       <Tabs tabs={tabs}>
+        {/* Itinerary */}
         <div>
           <p className="text-sm">BCS: <b>{bcs.total}</b> · Pace: <b>{bcs.pace}</b> · Nap blocks/day: <b>{bcs.napBlocks}</b></p>
           <ul className="mt-2 list-disc pl-6 text-sm">
@@ -66,29 +71,21 @@ export default async function ResultsPage({ searchParams }: { searchParams: { [k
             <div className="rounded-xl border p-3"><h3 className="font-medium">Day 3</h3><p>Short transit, playground</p><p>Pace: {bcs.pace}</p></div>
           </div>
         </div>
+        {/* Hotels */}
         <div>
-          <p className="text-sm text-gray-600">Sample hotels data to be wired to Google Hotels API.</p>
-          <ul className="mt-2 list-disc pl-6 text-sm">
-            <li>Cribs/cots guaranteed · Blackout curtains</li>
-            <li>Connecting rooms available</li>
-          </ul>
+          <HotelsList items={hotels as any} />
         </div>
+        {/* Safety */}
         <div>
-          <p className="text-sm">Local emergency numbers vary. EU: 112 · US: 911</p>
-          <p className="text-xs text-gray-600">Add pediatric clinics & pharmacies dataset here.</p>
+          <SafetyList items={safety as any} />
         </div>
+        {/* Packing */}
         <div>
-          <p className="text-sm">Packing list adapts to age: {age} and pace: {bcs.pace}. Example:</p>
-          <ul className="mt-2 list-disc pl-6 text-sm">
-            <li>Sterilizing bags · Bottle brush</li>
-            <li>White noise · Swaddles</li>
-          </ul>
+          <PackingList age={String(age)} templates={packingTemplates as any} />
         </div>
+        {/* Products */}
         <div>
-          <ul className="list-disc pl-6 text-sm">
-            <li>Travel bottle brush — Amazon</li>
-            <li>Sterilizer bags — FirstCry</li>
-          </ul>
+          <ProductsList items={productsData as any} />
         </div>
       </Tabs>
     </section>
