@@ -4,7 +4,7 @@ import HotelsList from "@/components/HotelsList";
 import SafetyList from "@/components/SafetyList";
 import PackingList from "@/components/PackingList";
 import ProductsList from "@/components/ProductsList";
-import hotelsData from "@/data/hotels.json";
+import hotelsLocal from "@/data/hotels.json";
 import safetyData from "@/data/safety_contacts.json";
 import packingTemplates from "@/data/packing_templates.json";
 import productsData from "@/data/products.json";
@@ -17,6 +17,16 @@ async function fetchDetails(placeId: string){
     return await r.json();
   }catch{
     return null;
+  }
+}
+
+async function fetchHotels(lat:number, lng:number){
+  try{
+    const r = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/hotels?lat=${lat}&lng=${lng}`, { cache: "no-store" });
+    if (!r.ok) return [];
+    return await r.json();
+  }catch{
+    return [];
   }
 }
 
@@ -40,6 +50,15 @@ export default async function ResultsPage({ searchParams }: { searchParams: { [k
 
   const bcs = computeBCS({ age: age as string, directOnly, country });
 
+  // Hotels
+  let hotels: any[] = [];
+  if (lat && lng) hotels = await fetchHotels(lat, lng);
+  if (hotels.length === 0) {
+    hotels = (hotelsLocal as any[]).filter(h => !toText || h.city.toLowerCase() === String(toText).toLowerCase());
+  }
+
+  const safety = (safetyData as any[]).filter(s => !toText || s.city.toLowerCase() === String(toText).toLowerCase());
+
   const tabs = [
     { id: "itinerary", label: "Itinerary" },
     { id: "hotels", label: "Hotels" },
@@ -47,9 +66,6 @@ export default async function ResultsPage({ searchParams }: { searchParams: { [k
     { id: "packing", label: "Packing" },
     { id: "products", label: "Products" },
   ];
-
-  const hotels = (hotelsData as any[]).filter(h => !toText || h.city.toLowerCase() === String(toText).toLowerCase());
-  const safety = (safetyData as any[]).filter(s => !toText || s.city.toLowerCase() === String(toText).toLowerCase());
 
   return (
     <section className="mx-auto max-w-6xl space-y-4 p-4">
