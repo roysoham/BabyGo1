@@ -82,6 +82,18 @@ export async function GET(req: Request) {
       );
     }
 
+    // inside your GET() just before fetch(...) call
+    async function tryQuery(q: string) {
+      const resp = await fetch(q);
+        const data = await resp.json();
+          return data?.results ?? [];
+          }
+
+          const base = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${radius}&type=lodging&key=${key}`;
+          let results = await tryQuery(`${base}&keyword=family+baby+crib+cot+kids+child+friendly`);
+          if (results.length === 0) results = await tryQuery(`${base}&keyword=family+baby`);
+          if (results.length === 0) results = await tryQuery(base);
+
     const attempts: any[] = [];
     const collected: any[] = [];
 
