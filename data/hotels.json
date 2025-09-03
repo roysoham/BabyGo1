@@ -1,18 +1,1 @@
-[
-  {
-    "city": "Tokyo",
-    "name": "BabyGo Hotel Tokyo",
-    "cribs": true,
-    "blackout": true,
-    "connecting": true,
-    "priceTier": "$$$"
-  },
-  {
-    "city": "London",
-    "name": "Family Suites London",
-    "cribs": true,
-    "blackout": true,
-    "connecting": true,
-    "priceTier": "$$"
-  }
-]
+[]

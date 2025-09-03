@@ -1,16 +1,1 @@
-[
-  {
-    "city": "Tokyo",
-    "type": "Pediatrician",
-    "name": "Tokyo Kids Clinic",
-    "speaksEnglish": true,
-    "phone": "+81-3-0000-0000"
-  },
-  {
-    "city": "London",
-    "type": "Pharmacy",
-    "name": "Boots Piccadilly",
-    "speaksEnglish": true,
-    "phone": "+44-20-0000-0000"
-  }
-]
+[]
