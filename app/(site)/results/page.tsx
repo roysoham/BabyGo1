@@ -1,10 +1,10 @@
 import Tabs from "@/components/Tabs";
 import ResultsHeader from "@/components/ResultsHeader";
-import HotelsList from "@/components/HotelsList";
 import SafetyList from "@/components/SafetyList";
 import PackingList from "@/components/PackingList";
 import ProductsList from "@/components/ProductsList";
-import hotelsLocal from "@/data/hotels.json";
+import HotelsFilters from "@/components/HotelsFilters";
+import HotelsTab from "@/components/HotelsTab";
 import safetyData from "@/data/safety_contacts.json";
 import packingTemplates from "@/data/packing_templates.json";
 import productsData from "@/data/products.json";
@@ -17,16 +17,6 @@ async function fetchDetails(placeId: string){
     return await r.json();
   }catch{
     return null;
-  }
-}
-
-async function fetchHotels(lat:number, lng:number){
-  try{
-    const r = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/hotels?lat=${lat}&lng=${lng}`, { cache: "no-store" });
-    if (!r.ok) return [];
-    return await r.json();
-  }catch{
-    return [];
   }
 }
 
@@ -45,17 +35,10 @@ export default async function ResultsPage({ searchParams }: { searchParams: { [k
   let toDetails: any = null;
   if (toId) toDetails = await fetchDetails(toId as string);
   const country = toDetails?.result?.address_components?.find((c:any)=>c.types?.includes("country"))?.long_name || "";
-  const lat = toDetails?.result?.geometry?.location?.lat ?? null;
-  const lng = toDetails?.result?.geometry?.location?.lng ?? null;
+  const lat = toDetails?.result?.geometry?.location?.lat ?? (q.lat ? Number(q.lat) : null);
+  const lng = toDetails?.result?.geometry?.location?.lng ?? (q.lng ? Number(q.lng) : null);
 
   const bcs = computeBCS({ age: age as string, directOnly, country });
-
-  // Hotels
-  let hotels: any[] = [];
-  if (lat && lng) hotels = await fetchHotels(lat, lng);
-  if (hotels.length === 0) {
-    hotels = (hotelsLocal as any[]).filter(h => !toText || h.city.toLowerCase() === String(toText).toLowerCase());
-  }
 
   const safety = (safetyData as any[]).filter(s => !toText || s.city.toLowerCase() === String(toText).toLowerCase());
 
@@ -82,14 +65,15 @@ export default async function ResultsPage({ searchParams }: { searchParams: { [k
             {bcs.breakdown.map(b=>(<li key={b.label}>{b.label} {b.score}/100</li>))}
           </ul>
           <div className="mt-3 grid gap-3 md:grid-cols-3">
-            <div className="rounded-xl border p-3"><h3 className="font-medium">Day 1</h3><p>Stroller‑friendly activity</p><p>Pace: {bcs.pace}</p></div>
-            <div className="rounded-xl border p-3"><h3 className="font-medium">Day 2</h3><p>Low‑stim museum / park</p><p>Pace: {bcs.pace}</p></div>
+            <div className="rounded-xl border p-3"><h3 className="font-medium">Day 1</h3><p>Stroller-friendly activity</p><p>Pace: {bcs.pace}</p></div>
+            <div className="rounded-xl border p-3"><h3 className="font-medium">Day 2</h3><p>Low-stim museum / park</p><p>Pace: {bcs.pace}</p></div>
             <div className="rounded-xl border p-3"><h3 className="font-medium">Day 3</h3><p>Short transit, playground</p><p>Pace: {bcs.pace}</p></div>
           </div>
         </div>
         {/* Hotels */}
         <div>
-          <HotelsList items={hotels as any} />
+          <HotelsFilters />
+          <HotelsTab />
         </div>
         {/* Safety */}
         <div>
