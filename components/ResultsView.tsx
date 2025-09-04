@@ -8,6 +8,8 @@ import hotelsLocal from "@/data/hotels.json";
 import safetyData from "@/data/safety_contacts.json";
 import packingTemplates from "@/data/packing_templates.json";
 import productsData from "@/data/products.json";
+import HotelsTab from "@/components/HotelsTab";
+
 
 // ---- Robust import resolver for BCS (handles default/named) -----------------
 import * as bcsEngineNS from "@/lib/bcsEngine";
@@ -245,7 +247,8 @@ export default async function ResultsView({
             </span>
           </div>
 
-          <HotelsList items={hotels as any} />
+          
+          <HotelsTab />
         </div>
 
         {/* Safety */}

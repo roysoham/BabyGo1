@@ -1,130 +1,251 @@
-// components/HotelsTab.tsx
 "use client";
+import React, { useEffect, useRef, useState } from "react";
+import Chip from "@/components/ui/Chip";
+import HotelsCards from "@/components/HotelsCards";
 
-import React from "react";
-import { useSearchParams } from "next/navigation";
-import HotelsCard from "@/components/HotelsCard";
+type Suggestion = { place_id: string; description: string };
 
-type Item = {
-  name: string;
-  address?: string;
-  rating?: number | null;
-  ratings?: number | null;
-  priceLevel?: number | null;
-  maps_url?: string | null;
-  grade?: "A"|"B"|"C"|"D";
-  score?: number | null; // server score (0..100)
-  hints?: { likelyCribs?: boolean };
-};
-
-function tanh(x:number){ return Math.tanh(x); }
-function reviewsScore(count?: number | null){ if(!count) return 0.2; return tanh((count||0)/500); }
-function priceLevelScore(level?: number | null){
-  if (level == null) return 0.6;
-  const map: Record<number, number> = { 0: 1.0, 1: 1.0, 2: 0.75, 3: 0.5, 4: 0.25 };
-  return map[level] ?? 0.6;
-}
-function weightsForAge(age: string){
-  const a = age.toLowerCase();
-  if (a.startsWith("0-3") || a.startsWith("0–3") || a.startsWith("0—3")) return { rating: 0.35, reviews: 0.20, price: 0.15, crib: 0.30 };
-  if (a.startsWith("4-6") || a.startsWith("4–6") || a.startsWith("4—6")) return { rating: 0.38, reviews: 0.22, price: 0.15, crib: 0.25 };
-  if (a.startsWith("7-12")) return { rating: 0.40, reviews: 0.25, price: 0.15, crib: 0.20 };
-  // 1-3y / 3-5y
-  return { rating: 0.45, reviews: 0.30, price: 0.15, crib: 0.10 };
+function useDebounced<T extends (...args: any[]) => void>(fn: T, delay = 220) {
+  const t = useRef<ReturnType<typeof setTimeout> | null>(null);
+  return (...args: Parameters<T>) => {
+    if (t.current) clearTimeout(t.current);
+    t.current = setTimeout(() => fn(...args), delay) as any;
+  };
 }
 
-function makeBreakdown(h: Item, age: string){
-  const w = weightsForAge(age);
-  const sr = Math.max(0, Math.min(1, (h.rating ?? 0) / 5));        // 0..1
-  const sv = reviewsScore(h.ratings ?? null);                       // 0..1
-  const sp = priceLevelScore(h.priceLevel ?? null);                 // 0..1
-  const sc = h.hints?.likelyCribs ? 1 : 0;                          // 0..1
-
-  // points scaled to 0..100 for display parity with server score
-  const ratingPts = w.rating * sr * 100;
-  const reviewPts = w.reviews * sv * 100;
-  const pricePts  = w.price  * sp * 100;
-  const cribPts   = w.crib   * sc * 100;
-
-  const scoreApprox = Math.round(ratingPts + reviewPts + pricePts + cribPts);
-
-  const breakdown = [
-    { label: "Rating quality", weight: w.rating, value: sr, points: ratingPts },
-    { label: "Reviews volume", weight: w.reviews, value: sv, points: reviewPts },
-    { label: "Price fit",      weight: w.price,  value: sp, points: pricePts },
-    { label: "Crib hint",      weight: w.crib,   value: sc, points: cribPts },
-  ];
-
-  return { scoreApprox, breakdown };
+async function getSug(q: string): Promise<Suggestion[]> {
+  if (!q || q.length < 2) return [];
+  try {
+    const r = await fetch(`/api/places/autocomplete?q=${encodeURIComponent(q)}`);
+    if (!r.ok) return [];
+    return await r.json();
+  } catch {
+    return [];
+  }
 }
 
-export default function HotelsTab(){
-  const sp = useSearchParams();
-  const lat = sp.get("lat") ? Number(sp.get("lat")) : undefined;
-  const lng = sp.get("lng") ? Number(sp.get("lng")) : undefined;
-  const minRating = sp.get("minRating") || "";
-  const maxPrice  = sp.get("maxPrice") || "";
-  const cribOnly  = sp.get("cribOnly") === "true";
-  const q         = sp.get("q") || "";
-  const age       = sp.get("childAge") || sp.get("age") || "7-12m";
-  const radius    = sp.get("radius") || "5000";
+async function resolveLatLng(placeId: string) {
+  try {
+    const r = await fetch(`/api/places/details?placeId=${encodeURIComponent(placeId)}`, { cache: "no-store" });
+    if (!r.ok) return null;
+    const d = await r.json();
+    const loc = d?.result?.geometry?.location;
+    return (typeof loc?.lat === "number" && typeof loc?.lng === "number") ? { lat: loc.lat, lng: loc.lng } : null;
+  } catch {
+    return null;
+  }
+}
 
-  const [loading, setLoading] = React.useState(false);
-  const [items, setItems]     = React.useState<Item[]>([]);
-  const [err, setErr]         = React.useState<string|null>(null);
+async function loadHotels(
+  coords: { lat: number; lng: number },
+  f: { radius: number; limit: number; minRating?: number; maxPriceLevel?: number; keyword?: string; cribsLikely?: boolean }
+) {
+  const qs = new URLSearchParams({
+    lat: String(coords.lat),
+    lng: String(coords.lng),
+    radius: String(f.radius),
+    limit: String(f.limit),
+  });
+  if (f.minRating) qs.set("minRating", String(f.minRating));
+  if (typeof f.maxPriceLevel === "number") qs.set("maxPriceLevel", String(f.maxPriceLevel));
+  if (f.keyword?.trim()) qs.set("keyword", f.keyword.trim());
+  if (f.cribsLikely) qs.set("cribsLikely", "true");
 
-  React.useEffect(()=>{
-    async function load(){
-      if (lat == null || lng == null) { setItems([]); return; }
-      setLoading(true); setErr(null);
-      try{
-        const p = new URLSearchParams({ lat:String(lat), lng:String(lng), radius, age });
-        if (minRating) p.set("minRating", minRating);
-        if (maxPrice)  p.set("maxPrice",  maxPrice);
-        if (cribOnly)  p.set("cribOnly",  "true");
-        if (q)         p.set("q",         q);
+  const r = await fetch(`/api/hotels?${qs.toString()}`, { cache: "no-store" });
+  if (!r.ok) return { items: [], debug: { apiTried: true, error: "api error" } };
+  const data = await r.json();
+  return data;
+}
 
-        const r = await fetch(`/api/hotels?${p.toString()}`, { cache: "no-store" });
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        const data = await r.json();
-        setItems(data.items || []);
-      }catch(e:any){
-        setErr(e?.message || "Failed to load hotels");
-      }finally{
-        setLoading(false);
-      }
-    }
-    load();
-  }, [lat, lng, minRating, maxPrice, cribOnly, q, radius, age]);
+export default function HotelsTab() {
+  // location state
+  const [q, setQ] = useState("");
+  const [openSug, setOpenSug] = useState(false);
+  const [sug, setSug] = useState<Suggestion[]>([]);
+  const [placeId, setPlaceId] = useState<string | null>(null);
+  const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
 
-  if (lat == null || lng == null) return <p className="text-sm text-slate-600">Select a destination (or use a supported city) to see hotels.</p>;
-  if (loading) return <p className="text-sm text-slate-600">Loading hotels…</p>;
-  if (err) return <p className="text-sm text-red-600">Error: {err}</p>;
-  if (!items.length) return <p className="text-sm text-slate-600">No hotels found for this destination yet.</p>;
+  // filters
+  const [radius, setRadius] = useState(3500);
+  const [limit, setLimit] = useState(12);
+  const [minRating, setMinRating] = useState(4.5);
+  const [maxPriceLevel, setMaxPriceLevel] = useState(3);
+  const [keyword, setKeyword] = useState("");
+  const [cribsLikely, setCribsLikely] = useState(true);
+
+  // results
+  const [items, setItems] = useState<any[]>([]);
+  const [flags, setFlags] = useState<{ apiTried: boolean; source: "none" | "details" }>({
+    apiTried: false,
+    source: "none",
+  });
+
+  const deb = useDebounced(async (v: string) => setSug(await getSug(v)), 220);
+
+  useEffect(() => {
+    if (!openSug) return;
+    deb(q);
+  }, [q, openSug]);
+
+  async function handlePick(s: Suggestion) {
+    setQ(s.description);
+    setPlaceId(s.place_id);
+    setOpenSug(false);
+    const ll = await resolveLatLng(s.place_id);
+    setCoords(ll);
+    setFlags((f) => ({ ...f, source: ll ? "details" : "none" }));
+  }
+
+  async function onSearch() {
+    setItems([]);
+    setFlags((f) => ({ ...f, apiTried: true }));
+    if (!coords) return;
+    const data = await loadHotels(coords, { radius, limit, minRating, maxPriceLevel, keyword, cribsLikely });
+    const arr: any[] = Array.isArray(data?.items) ? data.items : [];
+    setItems(arr);
+  }
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {items.map((h, i) => {
-        const { scoreApprox, breakdown } = makeBreakdown(h, String(age));
-        return (
-          <HotelsCard
-            key={`${h.maps_url || h.name}-${i}`}
-            name={h.name}
-            address={h.address}
-            rating={h.rating ?? null}
-            ratings={h.ratings ?? null}
-            priceLevel={h.priceLevel ?? null}
-            maps_url={h.maps_url || null}
-            grade={h.grade}
-            score={typeof h.score === "number" ? h.score : scoreApprox}
-            badges={[
-              ...(h.hints?.likelyCribs ? ["Cribs"] : []),
-              ...(q ? [`Match: ${q}`] : []),
-            ]}
-            breakdown={breakdown}
-          />
-        );
-      })}
+    <div className="space-y-3">
+      {/* Controls */}
+      <div className="rounded-xl border bg-white p-3 shadow-sm">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-12">
+          <div className="relative md:col-span-4">
+            <label className="mb-1 block text-xs font-medium text-gray-600">Location</label>
+            <input
+              className="w-full rounded-lg border px-3 py-2"
+              placeholder="Enter city / area"
+              value={q}
+              onChange={(e) => {
+                setQ(e.target.value);
+                setPlaceId(null);
+                setCoords(null);
+              }}
+              onFocus={() => setOpenSug(true)}
+            />
+            {openSug && sug.length > 0 && (
+              <div className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-lg border bg-white shadow">
+                {sug.map((s) => (
+                  <div
+                    key={s.place_id}
+                    className="cursor-pointer px-3 py-2 text-sm hover:bg-gray-50"
+                    onClick={() => handlePick(s)}
+                  >
+                    {s.description}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="mb-1 block text-xs font-medium text-gray-600">Radius (m)</label>
+            <input
+              type="number"
+              className="w-full rounded-lg border px-3 py-2"
+              value={radius}
+              min={500}
+              step={100}
+              onChange={(e) => setRadius(parseInt(e.target.value || "3500", 10))}
+            />
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="mb-1 block text-xs font-medium text-gray-600">Min rating</label>
+            <select
+              className="w-full rounded-lg border px-3 py-2"
+              value={minRating}
+              onChange={(e) => setMinRating(parseFloat(e.target.value))}
+            >
+              {[4.0, 4.2, 4.3, 4.4, 4.5].map((x) => (
+                <option key={x} value={x}>
+                  {x.toFixed(1)}+
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="mb-1 block text-xs font-medium text-gray-600">Max price level</label>
+            <select
+              className="w-full rounded-lg border px-3 py-2"
+              value={maxPriceLevel}
+              onChange={(e) => setMaxPriceLevel(parseInt(e.target.value, 10))}
+            >
+              {[0, 1, 2, 3, 4].map((x) => (
+                <option key={x} value={x}>
+                  `$${"".padStart(x, "$")}`
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="mb-1 block text-xs font-medium text-gray-600">Limit</label>
+            <input
+              type="number"
+              className="w-full rounded-lg border px-3 py-2"
+              value={limit}
+              min={5}
+              max={50}
+              onChange={(e) => setLimit(parseInt(e.target.value || "12", 10))}
+            />
+          </div>
+
+          <div className="md:col-span-8">
+            <label className="mb-1 block text-xs font-medium text-gray-600">Keyword</label>
+            <input
+              className="w-full rounded-lg border px-3 py-2"
+              placeholder="kids, crib, family, station, park..."
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+            />
+          </div>
+
+          <div className="md:col-span-2 flex items-end">
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={cribsLikely}
+                onChange={(e) => setCribsLikely(e.target.checked)}
+              />
+              Cribs likely
+            </label>
+          </div>
+
+          <div className="md:col-span-2 flex items-end justify-end">
+            <button
+              type="button"
+              className="rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 px-5 py-2 text-sm font-semibold text-white shadow disabled:opacity-50"
+              onClick={onSearch}
+              disabled={!coords}
+              title={!coords ? "Pick a location first" : "Search hotels"}
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Status chips */}
+      <div className="flex flex-wrap gap-2">
+        <Chip>{items.length ? `${items.length} result(s)` : "no results"}</Chip>
+        <Chip>coords source: {flags.source}</Chip>
+        <Chip>api tried: {String(flags.apiTried)}</Chip>
+      </div>
+
+      {/* Results */}
+      {items.length ? (
+        <HotelsCards items={items} />
+      ) : flags.apiTried ? (
+        <div className="rounded-xl border bg-white p-6 text-gray-600">
+          No hotels found for this search.
+        </div>
+      ) : (
+        <div className="rounded-xl border bg-white p-6 text-gray-500">
+          Choose a location, adjust filters, then click Search.
+        </div>
+      )}
     </div>
   );
 }
