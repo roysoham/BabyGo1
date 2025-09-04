@@ -104,9 +104,10 @@ export default async function ResultsView({
   const cribsLikely = one(searchParams.cribs, "false") === "true";
 
   // coords from query (if present)
-  const latQ = parseFloat(one(searchParams.lat, ""));
-  const lngQ = parseFloat(one(searchParams.lng, ""));
-  const hasLatLng = Number.isFinite(latQ) && Number.isFinite(lngQ);
+  // coords from query (flattened)
+const latQ = q.lat ? parseFloat(q.lat) : NaN;
+const lngQ = q.lng ? parseFloat(q.lng) : NaN;
+const hasLatLng = Number.isFinite(latQ) && Number.isFinite(lngQ);
 
   // resolve country for BCS, if we have details
   let lat: number | null = null;
