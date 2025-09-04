@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "city": "Paris, France",
+    "name": "Hôtel Duo",
+    "rating": 4.4,
+    "ratings": 605,
+    "address": "11 Rue du Temple, Paris",
+    "place_id": "ChIJ5Q98gX9u5kcRCHoteldUo",
+    "hints": { "likelyCribs": true }
+  },
+  {
+    "city": "Paris, France",
+    "name": "Britannique Hotel - Paris Centre",
+    "rating": 4.7,
+    "ratings": 1236,
+    "address": "20 Avenue Victoria, Paris",
+    "place_id": "ChIJr3j8h39u5kcRBritaNNQ",
+    "hints": { "likelyCribs": true }
+  },
+  {
+    "city": "Paris, France",
+    "name": "Citadines Les Halles Paris",
+    "rating": 4.0,
+    "ratings": 1175,
+    "address": "4 Rue des Innocents, Paris",
+    "place_id": "ChIJ123lesHaPARIS",
+    "hints": { "likelyCribs": false }
+  }
+]
