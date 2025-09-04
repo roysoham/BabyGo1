@@ -23,5 +23,9 @@ echo "S3) Hotels -> count"
 curl -s "${base}/api/hotels?lat=48.8566&lng=2.3522&radius=3500&limit=12" | jq '.items | length'
 
 echo
-echo "S4) coords source
+echo "S4) coords source"
 curl "http://localhost:3000/results?from=Tokyo&to=Paris&lat=48.8566&lng=2.3522" | grep -o "no results\|coords source"
+
+echo 
+"S5) Hotels search with filters -> should return >0"
+curl -s "http://localhost:3000/api/hotels?lat=48.8566&lng=2.3522&radius=3500&limit=12&keyword=kids,crib,quiet" | jq '.items | length'
