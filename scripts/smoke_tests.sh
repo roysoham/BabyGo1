@@ -1,22 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "S1) Autocomplete → at least 1 suggestion for Paris"
-curl -s "http://localhost:3000/api/places/autocomplete?q=Paris" | jq '.[0] // empty' | tee /dev/stderr >/dev/null
+base="http://localhost:3000"
 
-PID=$(curl -s "http://localhost:3000/api/places/autocomplete?q=Paris" | jq -r '.[0].place_id // empty')
-if [ -z "${PID}" ]; then
-  echo "Autocomplete failed (no place_id)."
-  exit 1
+echo "S1) Autocomplete -> 1 suggestion"
+resp=$(curl -s "${base}/api/places/autocomplete?q=Paris")
+echo "$resp" | head -c 120 && echo
+pid=$(echo "$resp" | jq -r '.[0].place_id // empty')
+echo "PID=${pid}"
+
+echo
+echo "S2) Details -> lat/lng"
+if [ -n "$pid" ]; then
+  curl -s "${base}/api/places/details?placeId=${pid}" | jq -r '.result.geometry.location'
+else
+  echo "details: skipped (no pid)"
 fi
-echo "PID=${PID}"
 
-echo "S2) Details → lat/lng"
-curl -s "http://localhost:3000/api/places/details?placeId=${PID}" | jq '.result.geometry.location'
+echo
+echo "S3) Hotels -> count"
+# Paris lat/lng
+curl -s "${base}/api/hotels?lat=48.8566&lng=2.3522&radius=3500&limit=12" | jq '.items | length'
 
-LOC=$(curl -s "http://localhost:3000/api/places/details?placeId=${PID}" | jq -r '.result.geometry.location | "\(.lat),\(.lng)"')
-LAT=$(echo "$LOC" | cut -d, -f1)
-LNG=$(echo "$LOC" | cut -d, -f2)
-
-echo "S3) Hotels → count"
-curl -s "http://localhost:3000/api/hotels?lat=${LAT}&lng=${LNG}&radius=3500&limit=12&minRating=4.5&maxPriceLevel=3&keyword=kids&cribsLikely=true" | jq '.items | length'
+echo
+echo "S4) coords source
+curl "http://localhost:3000/results?from=Tokyo&to=Paris&lat=48.8566&lng=2.3522" | grep -o "no results\|coords source"

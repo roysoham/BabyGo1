@@ -1,90 +1,151 @@
-// components/HotelsList.tsx
-type HotelItem = {
+"use client";
+import { useMemo, useState } from "react";
+
+type Hotel = {
   name: string;
   address?: string;
   rating?: number;
-  priceLevel?: number | string | null;
+  ratings?: number;
   maps_url?: string;
-  hints?: { likelyCribs?: boolean } | null;
-  matchTags?: string[];      // optional: display tiny chips
-  bcsTag?: string;           // optional: tiny BCS chip text
+  place_id?: string;
+  hints?: { likelyCribs?: boolean };
 };
 
-export default function HotelsList({ items }: { items: HotelItem[] | any }) {
-  const list: HotelItem[] = Array.isArray(items) ? items : [];
+export default function HotelsList({
+  items,
+  coords
+}: {
+  items: Hotel[];
+  coords?: { lat: number; lng: number } | null;
+}) {
+  const [keyword, setKeyword] = useState("");
+  const [minRating, setMinRating] = useState(4.0);
+  const [radiusKm, setRadiusKm] = useState(5);
+  const [cribsOnly, setCribsOnly] = useState(false);
 
-  if (!list.length) {
-    return (
-      <div className="rounded-lg border bg-white p-4 text-sm text-gray-600">
-        No hotels found for this destination yet.
-      </div>
-    );
+  const filtered = useMemo(() => {
+    const kw = keyword.trim().toLowerCase();
+    return (items || []).filter((h) => {
+      if (!h) return false;
+      if (cribsOnly && !h?.hints?.likelyCribs) return false;
+      if (typeof h.rating === "number" && h.rating < minRating) return false;
+      if (kw) {
+        const hay = `${h.name || ""} ${h.address || ""}`.toLowerCase();
+        if (!hay.includes(kw)) return false;
+      }
+      return true;
+    });
+  }, [items, keyword, minRating, cribsOnly]);
+
+  function openMaps(placeUrl?: string) {
+    if (placeUrl) {
+      window.open(placeUrl, "_blank", "noopener,noreferrer");
+    } else if (coords) {
+      const u = `https://www.google.com/maps/search/?api=1&query=${coords.lat},${coords.lng}`;
+      window.open(u, "_blank", "noopener,noreferrer");
+    }
   }
 
-  const formatPrice = (p: HotelItem["priceLevel"]) =>
-    p === null || p === undefined || p === "" ? "—" : String(p);
-
   return (
-    <div className="grid gap-3 md:grid-cols-2">
-      {list.map((h, idx) => (
-        <article
-          key={`${h.name}-${idx}`}
-          className="rounded-xl border bg-white p-4 shadow-sm"
-        >
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <h3 className="font-semibold text-gray-900">{h.name}</h3>
-              {h.address ? (
-                <p className="mt-0.5 text-sm text-gray-600">{h.address}</p>
-              ) : null}
-            </div>
+    <div className="space-y-3">
+      {/* filter bar */}
+      <div className="flex flex-wrap items-center gap-2 rounded-xl border p-3">
+        <input
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          placeholder="Keyword (e.g., kids, crib, quiet)"
+          className="w-56 rounded-lg border px-3 py-2"
+        />
+        <label className="text-sm flex items-center gap-2">
+          Min rating
+          <select
+            className="rounded-lg border px-2 py-2"
+            value={minRating}
+            onChange={(e) => setMinRating(parseFloat(e.target.value))}
+          >
+            {[3, 3.5, 4, 4.5].map((r) => (
+              <option key={r} value={r}>
+                {r}★
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="text-sm flex items-center gap-2">
+          Radius
+          <select
+            className="rounded-lg border px-2 py-2"
+            value={radiusKm}
+            onChange={(e) => setRadiusKm(parseInt(e.target.value || "5"))}
+          >
+            {[3, 5, 8, 10, 15].map((km) => (
+              <option key={km} value={km}>
+                {km} km
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="text-sm flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={cribsOnly}
+            onChange={(e) => setCribsOnly(e.target.checked)}
+          />{" "}
+          Cribs likely
+        </label>
+        <div className="ml-auto">
+          <button
+            className="rounded-lg border px-3 py-2 text-sm"
+            onClick={() => {
+              setKeyword("");
+              setMinRating(4.0);
+              setRadiusKm(5);
+              setCribsOnly(false);
+            }}
+          >
+            Reset
+          </button>
+        </div>
+      </div>
 
-            {/* tiny BCS chip if provided */}
-            {h.bcsTag ? (
-              <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700">
-                {h.bcsTag}
-              </span>
-            ) : null}
-          </div>
-
-          <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-gray-700">
-            <span>⭐ {h.rating ?? "—"}</span>
-            <span>Price: {formatPrice(h.priceLevel)}</span>
-            {h.hints?.likelyCribs ? (
-              <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700">
-                Cribs likely
-              </span>
-            ) : null}
-            {h.matchTags?.length
-              ? h.matchTags.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full bg-slate-100 px-2 py-0.5 text-xs"
-                  >
-                    {t}
+      {/* results */}
+      {filtered.length === 0 ? (
+        <div className="rounded-xl border p-6 text-gray-600">
+          No hotels match your filters.
+        </div>
+      ) : (
+        <div className="grid gap-3 md:grid-cols-3">
+          {filtered.map((h, i) => (
+            <div
+              key={`${h.place_id || h.name}-${i}`}
+              className="rounded-2xl border p-4 shadow-sm"
+            >
+              <div className="mb-1 flex items-center justify-between gap-3">
+                <h3 className="line-clamp-1 font-semibold">{h.name}</h3>
+                <span className="inline-flex items-center gap-1 rounded-full border px-2 py-1 text-xs">
+                  ⭐ {typeof h.rating === "number" ? h.rating.toFixed(1) : "—"}{" "}
+                  <span className="text-gray-500">
+                    ({h.ratings ?? "—"})
                   </span>
-                ))
-              : null}
-          </div>
-
-          <div className="mt-3">
-            {h.maps_url ? (
-              <a
-                className="inline-flex items-center gap-2 rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-sm font-medium text-indigo-700 hover:bg-indigo-100"
-                href={h.maps_url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open in Google Maps
-              </a>
-            ) : (
-              <span className="text-xs text-gray-500">
-                Google Maps link unavailable
-              </span>
-            )}
-          </div>
-        </article>
-      ))}
+                </span>
+              </div>
+              <p className="line-clamp-2 text-sm text-gray-600">
+                {h.address || "—"}
+              </p>
+              <div className="mt-3 flex items-center justify-between">
+                <span className="text-xs text-gray-500">
+                  {h?.hints?.likelyCribs ? "Match: Cribs" : "Match: Kids"}
+                </span>
+                <button
+                  className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white"
+                  onClick={() => openMaps(h.maps_url)}
+                >
+                  Open in Google Maps
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
