@@ -1,3 +1,4 @@
+// components/ResultsView.tsx
 import Tabs from "@/components/Tabs";
 import ResultsHeader from "@/components/ResultsHeader";
 import HotelsList from "@/components/HotelsList";
@@ -9,16 +10,13 @@ import safetyData from "@/data/safety_contacts.json";
 import packingTemplates from "@/data/packing_templates.json";
 import productsData from "@/data/products.json";
 
-// ---- Robust import resolver for BCS (handles default/named) -----------------
+// ---- Robust BCS import ------------------------------------------------------
 import * as bcsEngineNS from "@/lib/bcsEngine";
-function resolveComputeBCS(): (args: any) => any {
+function resolveComputeBCS(): any {
   const ns: any = bcsEngineNS;
   if (typeof ns.computeBCS === "function") return ns.computeBCS;
   if (typeof ns.default === "function") return ns.default;
-  if (ns.default && typeof ns.default.computeBCS === "function") {
-    return ns.default.computeBCS;
-  }
-  // last-resort fallback so UI still renders
+  if (ns.default && typeof ns.default.computeBCS === "function") return ns.default.computeBCS;
   return () => ({
     total: 70,
     pace: "Moderate",
@@ -33,27 +31,40 @@ function resolveComputeBCS(): (args: any) => any {
 }
 const computeBCS = resolveComputeBCS();
 
-// --------------------------- helpers ----------------------------------------
+// ---- Helpers ----------------------------------------------------------------
 type SP = { [k: string]: string | string[] | undefined };
 
-function norm(s: string) {
-  return s.toLowerCase().trim();
+function norm(s?: string) {
+  return (s ?? "")
+    .toString()
+    .normalize("NFKD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .trim();
 }
 
-function resolveCoordsFromCities(freeText: string):
-  | { lat: number; lng: number; match: string }
-  | null {
-  try {
-    const cities: Array<{ city?: string; lat?: number; lng?: number }> =
-      // @ts-ignore – you have a cities.json in data/
-      require("@/data/cities.json");
-    const q = norm(freeText || "");
-    if (!q) return null;
-    const hit = cities.find((c) => c.city && norm(String(c.city)).includes(q));
-    if (hit && typeof hit.lat === "number" && typeof hit.lng === "number") {
-      return { lat: hit.lat, lng: hit.lng, match: String(hit.city) };
-    }
-  } catch (_) {}
+const CITY_COORDS: Array<{ name: string; lat: number; lng: number }> = [
+  { name: "paris", lat: 48.8566, lng: 2.3522 },
+  { name: "tokyo", lat: 35.6762, lng: 139.6503 },
+  { name: "rome", lat: 41.9028, lng: 12.4964 },
+  { name: "london", lat: 51.5072, lng: -0.1276 },
+  { name: "new york", lat: 40.7128, lng: -74.006 },
+  { name: "singapore", lat: 1.3521, lng: 103.8198 },
+  { name: "dubai", lat: 25.2048, lng: 55.2708 },
+  { name: "bangkok", lat: 13.7563, lng: 100.5018 },
+  { name: "sydney", lat: -33.8688, lng: 151.2093 },
+  { name: "barcelona", lat: 41.3874, lng: 2.1686 },
+];
+
+function resolveCoordsFromCities(freeText: string) {
+  const needle = norm(freeText);
+  if (!needle) return null;
+  const exact = CITY_COORDS.find(c => norm(c.name) === needle);
+  if (exact) return { lat: exact.lat, lng: exact.lng, match: exact.name };
+  const starts = CITY_COORDS.find(c => needle.startsWith(norm(c.name)));
+  if (starts) return { lat: starts.lat, lng: starts.lng, match: starts.name };
+  const sub = CITY_COORDS.find(c => needle.includes(norm(c.name)));
+  if (sub) return { lat: sub.lat, lng: sub.lng, match: sub.name };
   return null;
 }
 
@@ -71,32 +82,29 @@ async function fetchDetails(placeId: string) {
   }
 }
 
-async function fetchHotels(lat: number, lng: number, limit = 24) {
+async function fetchHotels(lat: number, lng: number) {
   try {
     const base = process.env.NEXT_PUBLIC_BASE_URL || "";
     const r = await fetch(
-      `${base}/api/hotels?lat=${lat}&lng=${lng}&limit=${limit}`,
+      `${base}/api/hotels?lat=${lat}&lng=${lng}&radius=3500&limit=20`,
       { cache: "no-store" }
     );
-    if (!r.ok) return { items: [] as any[] };
-    return await r.json();
+    if (!r.ok) return [];
+    const data = await r.json();
+    return Array.isArray(data?.items) ? data.items : Array.isArray(data) ? data : [];
   } catch {
-    return { items: [] as any[] };
+    return [];
   }
 }
 
-// ------------------------------ component -----------------------------------
+// ---- Main server component --------------------------------------------------
 export default async function ResultsView({
   searchParams,
 }: {
-  searchParams: Promise<SP> | SP;
+  searchParams: SP;
 }) {
-  // ✅ FIX: await searchParams before touching it
-  const raw = await searchParams;
-
-  // flatten to Record<string,string>
   const q: Record<string, string> = Object.fromEntries(
-    Object.entries(raw ?? {}).map(([k, v]) => [
+    Object.entries(searchParams ?? {}).map(([k, v]) => [
       k,
       Array.isArray(v) ? v[0] ?? "" : v ?? "",
     ])
@@ -111,67 +119,55 @@ export default async function ResultsView({
   const directOnly = (q.directOnly || "true") === "true";
   const travellers = parseInt(q.travellers || "2", 10);
 
-  // Resolve destination coordinates
+  // coords
+  let coordSource: "none" | "placeId" | "cities" = "none";
   let lat: number | null = null;
   let lng: number | null = null;
-  let coordsSource: "placeId" | "cities" | "none" = "none";
 
+  let toDetails: any = null;
   if (toId) {
-    const d = await fetchDetails(toId);
-    const loc = d?.result?.geometry?.location;
+    toDetails = await fetchDetails(toId);
+    const loc = toDetails?.result?.geometry?.location;
     if (typeof loc?.lat === "number" && typeof loc?.lng === "number") {
       lat = loc.lat;
       lng = loc.lng;
-      coordsSource = "placeId";
+      coordSource = "placeId";
     }
   }
   if (lat == null || lng == null) {
-    const cityHit = resolveCoordsFromCities(toText);
-    if (cityHit) {
-      lat = cityHit.lat;
-      lng = cityHit.lng;
-      coordsSource = "cities";
+    const hit = resolveCoordsFromCities(toText);
+    if (hit) {
+      lat = hit.lat;
+      lng = hit.lng;
+      coordSource = "cities";
     }
   }
 
-  // BCS (use country if you have it in details)
   const country =
-    (await (async () => {
-      if (!toId) return "";
-      const d = await fetchDetails(toId);
-      return (
-        d?.result?.address_components?.find((c: any) =>
-          c.types?.includes("country")
-        )?.long_name || ""
-      );
-    })()) || "";
+    toDetails?.result?.address_components?.find((c: any) =>
+      c.types?.includes("country")
+    )?.long_name || "";
 
   const bcs = computeBCS({ age: String(age), directOnly, country });
 
-  // Hotels (API first, fallback to local)
+  // hotels
   let apiTried = false;
   let hotels: any[] = [];
-  if (typeof lat === "number" && typeof lng === "number") {
+  if (lat != null && lng != null) {
     apiTried = true;
-    const res = await fetchHotels(lat, lng, 24);
-    hotels = Array.isArray(res?.items) ? res.items : [];
+    hotels = await fetchHotels(lat, lng);
   }
-  if (!hotels?.length) {
-    // soft fallback to local curated hotels by exact city name
-    try {
-      const cityLc = (toText || "").toLowerCase();
-      hotels = (hotelsLocal as any[]).filter(
-        (h) => h.city && String(h.city).toLowerCase() === cityLc
-      );
-    } catch {
-      hotels = [];
-    }
+  if (!hotels.length) {
+    const needle = norm(toText);
+    hotels = (hotelsLocal as any[]).filter(h => {
+      const c = norm(h.city);
+      return needle && (c === needle || needle.startsWith(c) || needle.includes(c));
+    });
   }
 
-  const safety = (safetyData as any[]).filter((s) => {
-    const cityLc = (toText || "").toLowerCase();
-    return s.city && String(s.city).toLowerCase() === cityLc;
-  });
+  const safety = (safetyData as any[]).filter(
+    (s) => toText && norm(s.city) === norm(toText)
+  );
 
   const tabs = [
     { id: "itinerary", label: "Itinerary" },
@@ -190,11 +186,7 @@ export default async function ResultsView({
         } · Travellers ${travellers} · Age ${age} · ${
           directOnly ? "Direct only" : "Any flights"
         }`}
-        coords={
-          typeof lat === "number" && typeof lng === "number"
-            ? { lat, lng }
-            : null
-        }
+        coords={lat != null && lng != null ? { lat, lng } : null}
       />
 
       <Tabs tabs={tabs}>
@@ -231,20 +223,18 @@ export default async function ResultsView({
         </div>
 
         {/* Hotels */}
-        <div>
-          {/* tiny debug chips to help us see state fast */}
-          <div className="mb-3 flex flex-wrap gap-2 text-xs">
-            <span className="rounded-full border px-2 py-1">
-              {hotels.length ? `${hotels.length} results` : "no results"}
+        <div className="space-y-3">
+          <div className="flex gap-2 text-xs text-gray-600">
+            {!hotels.length && (
+              <span className="rounded-full bg-gray-100 px-2 py-1">no results</span>
+            )}
+            <span className="rounded-full bg-gray-100 px-2 py-1">
+              coords source: {coordSource}
             </span>
-            <span className="rounded-full border px-2 py-1">
-              coords source: {coordsSource}
-            </span>
-            <span className="rounded-full border px-2 py-1">
+            <span className="rounded-full bg-gray-100 px-2 py-1">
               api tried: {String(apiTried)}
             </span>
           </div>
-
           <HotelsList items={hotels as any} />
         </div>
 
