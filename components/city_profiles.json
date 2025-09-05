@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Paris, France",
+    "tags": ["stroller-friendly", "cribs-common", "walkable"],
+    "neighborhoods": ["Le Marais", "Saint-Germain", "Latin Quarter", "Canal Saint-Martin"],
+    "notes": [
+      "Most mid-range hotels can provide travel cots on request—email ahead.",
+      "Metro stations vary for stroller access; buses are often easier.",
+      "Parks like Jardin du Luxembourg have great playgrounds."
+    ]
+  },
+  {
+    "name": "Tokyo, Japan",
+    "tags": ["very-clean", "great-pharmacies", "quiet-hotels"],
+    "neighborhoods": ["Shinjuku (west)", "Akasaka", "Nihonbashi", "Kiyosumi-Shirakawa"],
+    "notes": [
+      "Convenience stores stock baby supplies; large drugstores everywhere.",
+      "Most stations have elevators; look for 'barrier-free' signs.",
+      "Noise insulation is good; ask for higher floors for naps."
+    ]
+  }
+]

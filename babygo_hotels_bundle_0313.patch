@@ -1,0 +1,386 @@
+*** Begin Patch
+*** Add File: components/KBInsights.tsx
++/* Simple panel to show KB-driven insights (placeholder for now) */
++export default function KBInsights({ city }: { city?: string }) {
++  if (!city) return null;
++  return (
++    <div className="rounded-xl border bg-white p-3 text-sm">
++      <div className="mb-1 font-medium">Knowledge Insight</div>
++      <p className="text-gray-600">
++        Quick tip for <b>{city}</b>: pack a light rain cover for the stroller and
++        plan one indoor, low-stim activity per day. Tap any hotel’s “Match” chip to see why it ranked.
++      </p>
++    </div>
++  );
++}
++
+*** End Patch
+*** Begin Patch
+*** Add File: components/HotelsFilter.tsx
++ "use client";
++ import { useRouter, useSearchParams } from "next/navigation";
++ import { useState, useEffect } from "react";
++
++ type Props = {
++   defaultCity?: string;
++   hasLatLng: boolean;
++ };
++
++ export default function HotelsFilter({ defaultCity = "", hasLatLng }: Props) {
++   const sp = useSearchParams();
++   const router = useRouter();
++
++   const [city, setCity] = useState(sp.get("to") || defaultCity);
++   const [radius, setRadius] = useState(sp.get("radius") || "3500");
++   const [limit, setLimit] = useState(sp.get("limit") || "12");
++   const [keyword, setKeyword] = useState(sp.get("keyword") || "");
++   const [minRating, setMinRating] = useState(sp.get("minRating") || "");
++   const [price, setPrice] = useState(sp.get("price") || "");
++   const [cribs, setCribs] = useState((sp.get("cribs") || "false") === "true");
++
++   useEffect(() => {
++     setCity(sp.get("to") || defaultCity);
++   }, [sp, defaultCity]);
++
++   const onSubmit = (e: React.FormEvent) => {
++     e.preventDefault();
++     const q = new URLSearchParams(Array.from(sp.entries()));
++     if (city) q.set("to", city);
++     q.set("radius", radius || "3500");
++     q.set("limit", limit || "12");
++     q.set("keyword", keyword);
++     q.set("minRating", minRating);
++     q.set("price", price);
++     q.set("cribs", String(cribs));
++     router.push(`/results?${q.toString()}`);
++   };
++
++   const onReset = () => {
++     const keep = ["from","to","depart","ret","childAge","travellers","directOnly","fromId","toId","lat","lng"];
++     const q = new URLSearchParams();
++     for (const [k,v] of sp.entries()) if (keep.includes(k)) q.set(k, v);
++     router.push(`/results?${q.toString()}`);
++   };
++
++   return (
++     <form onSubmit={onSubmit} className="rounded-2xl border bg-white p-4 shadow-sm">
++       <div className="grid gap-3 md:grid-cols-5">
++         <div className="md:col-span-2">
++           <label className="mb-1 block text-xs font-medium text-gray-600">Location</label>
++           <input
++             className="w-full rounded-lg border px-3 py-2"
++             value={city}
++             onChange={(e)=>setCity(e.target.value)}
++             placeholder="Paris, France"
++           />
++         </div>
++         <div>
++           <label className="mb-1 block text-xs font-medium text-gray-600">Radius (m)</label>
++           <input className="w-full rounded-lg border px-3 py-2" value={radius} onChange={e=>setRadius(e.target.value)} />
++         </div>
++         <div>
++           <label className="mb-1 block text-xs font-medium text-gray-600">Min rating</label>
++           <select className="w-full rounded-lg border px-3 py-2" value={minRating} onChange={e=>setMinRating(e.target.value)}>
++             <option value="">Any</option>
++             <option value="3.5">3.5+</option>
++             <option value="4.0">4.0+</option>
++             <option value="4.3">4.3+</option>
++             <option value="4.5">4.5+</option>
++           </select>
++         </div>
++         <div>
++           <label className="mb-1 block text-xs font-medium text-gray-600">Max price level</label>
++           <select className="w-full rounded-lg border px-3 py-2" value={price} onChange={e=>setPrice(e.target.value)}>
++             <option value="">Any</option>
++             <option value="1">$</option>
++             <option value="2">$$</option>
++             <option value="3">$$$</option>
++             <option value="4">$$$$</option>
++             <option value="5">$$$$$</option>
++           </select>
++         </div>
++       </div>
++       <div className="mt-3 grid gap-3 md:grid-cols-5">
++         <div className="md:col-span-3">
++           <label className="mb-1 block text-xs font-medium text-gray-600">Keyword</label>
++           <input className="w-full rounded-lg border px-3 py-2" value={keyword} onChange={e=>setKeyword(e.target.value)} placeholder="kids, crib, quiet" />
++         </div>
++         <div>
++           <label className="mb-1 block text-xs font-medium text-gray-600">Limit</label>
++           <input className="w-full rounded-lg border px-3 py-2" value={limit} onChange={e=>setLimit(e.target.value)} />
++         </div>
++         <label className="flex items-end gap-2">
++           <input type="checkbox" checked={cribs} onChange={e=>setCribs(e.target.checked)} />
++           <span className="text-sm">Cribs likely</span>
++         </label>
++       </div>
++
++       <div className="mt-3 flex items-center gap-3">
++         {!hasLatLng && <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600">coords source: cities</span>}
++         <button type="submit" className="rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 px-5 py-2 font-semibold text-white shadow">Search</button>
++         <button type="button" onClick={onReset} className="rounded-xl border px-4 py-2 text-sm">Reset</button>
++       </div>
++     </form>
++   );
++ }
++
+*** End Patch
+*** Begin Patch
+*** Add File: components/HotelsList.tsx
++ type Hotel = {
++   name: string;
++   address?: string;
++   rating?: number;
++   ratings?: string;
++   maps_url?: string;
++   hints?: { cribsLikely?: boolean } | Record<string, unknown> | null;
++ };
++
++ export default function HotelsList({ items }: { items: Hotel[] }) {
++   if (!items || items.length === 0) {
++     return (
++       <div className="rounded-xl border bg-white p-6 text-gray-500">
++         No hotels found for this destination yet.
++       </div>
++     );
++   }
++   return (
++     <div className="grid gap-4 md:grid-cols-3">
++       {items.map((h, i)=>(
++         <div key={i} className="rounded-2xl border bg-white p-4 shadow-sm">
++           <div className="mb-1 flex items-center justify-between">
++             <h3 className="line-clamp-1 font-semibold">{h.name}</h3>
++             {h.rating ? (
++               <span className="rounded-full border px-2 py-0.5 text-xs">⭐ {h.rating}{h.ratings ? ` (${h.ratings})` : ""}</span>
++             ) : null}
++           </div>
++           {h.address && <p className="line-clamp-2 text-sm text-gray-600">{h.address}</p>}
++           {h.hints && (h as any).hints?.cribsLikely && (
++             <div className="mt-2 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-2 py-1 text-xs text-emerald-700">
++               Match: Cribs
++             </div>
++           )}
++           <div className="mt-3">
++             {h.maps_url ? (
++               <a target="_blank" rel="noreferrer" href={h.maps_url}
++                  className="inline-block rounded-lg border px-3 py-1.5 text-sm hover:bg-gray-50">
++                 Open in Google Maps
++               </a>
++             ) : null}
++           </div>
++         </div>
++       ))}
++     </div>
++   );
++ }
++
+*** End Patch
+*** Begin Patch
+*** Add File: components/ResultsHeader.tsx
++ export default function ResultsHeader({
++   title, subtitle, gmapsUrl
++ }: { title: string; subtitle: string; gmapsUrl?: string | null }) {
++   return (
++     <div className="rounded-2xl border bg-white p-4 shadow-sm">
++       <div className="flex flex-wrap items-center justify-between gap-3">
++         <div>
++           <h1 className="text-2xl font-bold">{title}</h1>
++           <p className="text-gray-600">{subtitle}</p>
++         </div>
++         {gmapsUrl && (
++           <a target="_blank" rel="noreferrer" href={gmapsUrl}
++              className="rounded-xl border px-4 py-2 text-sm hover:bg-gray-50">
++             Open in Google Maps
++           </a>
++         )}
++       </div>
++     </div>
++   );
++ }
++
+*** End Patch
+*** Begin Patch
+*** Add File: lib/fallbackCities.ts
++ import list from "../data/cities_fallback.min.json";
++ export type FCity = { name:string; lat:number; lng:number };
++ const cities = (list as FCity[]);
++ export function findCityByName(q?: string): FCity | null {
++   if (!q) return null; const s = q.toLowerCase().trim();
++   return cities.find(c => c.name.toLowerCase() === s || c.name.toLowerCase().includes(s)) || null;
++ }
++
+*** End Patch
+*** Begin Patch
+*** Add File: lib/bcsEngine.ts
++ export type BCS = {
++   total: number;
++   pace: "Slow" | "Moderate" | "Fast";
++   napBlocks: number;
++   breakdown: { label: string; score: number }[];
++ };
++
++ export function computeBCS({
++   age, directOnly, country
++ }: { age: string; directOnly: boolean; country?: string }): BCS {
++   // Light, deterministic scoring so UI never breaks
++   const base = 70;
++   const hygiene = country?.toLowerCase().includes("japan") ? 85 : 70;
++   const access = 78;
++   const lowStim = age.includes("0-3") || age.includes("4-6") ? 65 : 60;
++   const pace: BCS["pace"] = age.includes("7-12m") ? "Moderate" : "Slow";
++   const total = Math.round((hygiene + access + lowStim + (directOnly ? 5 : 0)) / 3);
++   return {
++     total,
++     pace,
++     napBlocks: pace === "Slow" ? 3 : 2,
++     breakdown: [
++       { label: "Healthcare", score: hygiene },
++       { label: "Hygiene", score: hygiene },
++       { label: "Accessibility", score: access },
++       { label: "Low-stimulation", score: lowStim },
++     ],
++   };
++ }
++
+*** End Patch
+*** Begin Patch
+*** Add File: data/cities_fallback.min.json
++[
++  { "name": "Paris, France", "lat": 48.8566, "lng": 2.3522 },
++  { "name": "Rome, Italy",  "lat": 41.9028, "lng": 12.4964 },
++  { "name": "Tokyo, Japan", "lat": 35.6762, "lng": 139.6503 }
++]
++
+*** End Patch
+*** Begin Patch
+*** Add File: scripts/smoke_tests.sh
++#!/usr/bin/env bash
++set -euo pipefail
++BASE="http://localhost:3000"
++echo "S1) Autocomplete -> 1+ suggestion"
++curl -s "$BASE/api/places/autocomplete?q=Paris" | jq '.[] | {place_id, description}' | head -n 2
++PID=$(curl -s "$BASE/api/places/autocomplete?q=Paris" | jq -r '.[0].place_id')
++echo "PID=$PID"
++echo
++echo "S2) Details -> lat/lng"
++curl -s "$BASE/api/places/details?placeId=$PID" | jq '.result.geometry.location'
++echo
++echo "S3) Hotels -> count"
++curl -s "$BASE/api/hotels?lat=48.8566&lng=2.3522&radius=3500&limit=12" | jq '.items | length'
++echo
+*** End Patch
+*** Begin Patch
+*** Add File: components/ResultsView.tsx
++import ResultsHeader from "./ResultsHeader";
++import HotelsFilter from "./HotelsFilter";
++import HotelsList from "./HotelsList";
++import KBInsights from "./KBInsights";
++import { findCityByName } from "../lib/fallbackCities";
++import { computeBCS } from "../lib/bcsEngine";
++
++type SP = Record<string, string | string[] | undefined>;
++const one = (v?: string | string[], d = "") => (Array.isArray(v) ? v[0] : v) ?? d;
++
++async function fetchDetails(placeId: string){
++  try{
++    const base = process.env.NEXT_PUBLIC_BASE_URL || "";
++    const r = await fetch(`${base}/api/places/details?placeId=${encodeURIComponent(placeId)}`, { cache: "no-store" });
++    if (!r.ok) return null;
++    return await r.json();
++  }catch{ return null; }
++}
++async function fetchHotels(lat:number, lng:number, q: SP){
++  try{
++    const base = process.env.NEXT_PUBLIC_BASE_URL || "";
++    const qs = new URLSearchParams({
++      lat: String(lat), lng: String(lng),
++      radius: one(q.radius,"3500"),
++      limit: one(q.limit,"12"),
++      keyword: one(q.keyword,""),
++      minRating: one(q.minRating,""),
++      price: one(q.price,""),
++      cribs: one(q.cribs,"false"),
++    });
++    const r = await fetch(`${base}/api/hotels?${qs.toString()}`, { cache:"no-store" });
++    if (!r.ok) return { items:[], debug:{} };
++    return await r.json();
++  }catch{ return { items:[], debug:{} }; }
++}
++
++export default async function ResultsView({
++  searchParams,
++}: {
++  searchParams: Promise<Record<string, string | string[]>>;
++}) {
++  const sp = await searchParams;
++  const q: SP = Object.fromEntries(Object.entries(sp).map(([k,v]) => [k, Array.isArray(v)? v[0] : v]));
++
++  const fromText = one(q.from, "Origin");
++  const toText   = one(q.to, "Destination");
++  const fromId   = one(q.fromId, "");
++  const toId     = one(q.toId, "");
++  const depart   = one(q.depart, "—");
++  const ret      = one(q.ret, "—");
++  const age      = one(q.childAge, "7-12m");
++  const travellers = parseInt(one(q.travellers,"2"));
++  const directOnly = (one(q.directOnly,"true") === "true");
++
++  // coords: prefer explicit lat/lng, then placeId details, then fallbackCities
++  let lat: number | null = null;
++  let lng: number | null = null;
++  const latQ = parseFloat(one(q.lat, ""));
++  const lngQ = parseFloat(one(q.lng, ""));
++  const hasLatLng = Number.isFinite(latQ) && Number.isFinite(lngQ);
++  if (hasLatLng) { lat = latQ; lng = lngQ; }
++  else if (toId) {
++    const d = await fetchDetails(toId);
++    const loc = d?.result?.geometry?.location;
++    if (typeof loc?.lat === "number" && typeof loc?.lng === "number") { lat = loc.lat; lng = loc.lng; }
++  } else {
++    const f = findCityByName(toText);
++    if (f) { lat = f.lat; lng = f.lng; }
++  }
++
++  // country (for BCS) if we have details
++  let country = "";
++  if (toId) {
++    const d = await fetchDetails(toId);
++    country = d?.result?.address_components?.find((c:any)=>c.types?.includes("country"))?.long_name || "";
++  }
++  const bcs = computeBCS({ age, directOnly, country });
++
++  // hotels
++  const apiTried = Boolean(lat && lng);
++  const hotelsResp = (lat && lng) ? await fetchHotels(lat, lng, sp) : { items:[], debug:{} };
++  const items = hotelsResp.items || [];
++
++  const gmapsUrl = lat && lng ? `https://www.google.com/maps/search/?api=1&query=${lat},${lng}` : null;
++
++  return (
++    <section className="mx-auto max-w-6xl space-y-4 p-4">
++      <ResultsHeader
++        title={`Results — ${toText}`}
++        subtitle={`From ${fromText} · Depart ${depart} · Return ${ret} · Travellers ${travellers} · Age ${age} · ${directOnly ? "Direct only" : "Any flights"}`}
++        gmapsUrl={gmapsUrl}
++      />
++
++      <div className="flex flex-wrap items-center gap-2 text-xs">
++        {!hasLatLng && <span className="rounded-full bg-gray-100 px-3 py-1 text-gray-700">coords source: cities</span>}
++        <span className="rounded-full bg-gray-100 px-3 py-1 text-gray-700">api tried: {String(apiTried)}</span>
++        {items.length === 0 && <span className="rounded-full bg-gray-100 px-3 py-1 text-gray-700">no results</span>}
++      </div>
++
++      <HotelsFilter defaultCity={toText} hasLatLng={!!hasLatLng} />
++      <KBInsights city={toText} />
++
++      <div className="rounded-2xl border bg-white p-4">
++        <div className="mb-3 text-sm text-gray-600">
++          BCS <b>{bcs.total}</b> · Pace <b>{bcs.pace}</b> · Nap blocks/day <b>{bcs.napBlocks}</b>
++        </div>
++        <HotelsList items={items} />
++      </div>
++    </section>
++  );
++}
++
+*** End Patch

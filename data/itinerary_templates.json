@@ -1,0 +1,442 @@
+[
+  {
+    "city": "Paris",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Tokyo",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "London",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "New York",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Singapore",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Bangkok",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Dubai",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Barcelona",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Rome",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Istanbul",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Seoul",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Sydney",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Toronto",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Vancouver",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Amsterdam",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Zurich",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Vienna",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Lisbon",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Prague",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  },
+  {
+    "city": "Hong Kong",
+    "defaults": {
+      "arrival": "Arrive, hydrate, light stroller stroll near hotel.",
+      "departure": "Checkout buffer + short playground or park stop.",
+      "napDurationMin": 60,
+      "morningTarget": [
+        "park",
+        "walk",
+        "playground"
+      ],
+      "middayTarget": [
+        "museum-low-stim",
+        "aquarium",
+        "indoor-soft-play"
+      ],
+      "eveningTarget": [
+        "early-dinner",
+        "sunset-walk"
+      ]
+    }
+  }
+]

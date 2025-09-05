@@ -1,8 +1,7 @@
 // app/(site)/results/page.tsx
 import ResultsView from "@/components/ResultsView";
 
-export const dynamic = "force-dynamic"; // keep it simple for dev
-
-export default async function Page(props: { searchParams: Record<string, any> }) {
-  return <ResultsView searchParams={props.searchParams} />;
+export default async function ResultsPage({ searchParams }: { searchParams: any }) {
+  const flat = Object.fromEntries(Object.entries(searchParams || {}).map(([k,v])=>[k, Array.isArray(v)?v[0]:v]));
+  return <ResultsView searchParams={flat} />;
 }

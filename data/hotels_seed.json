@@ -1,0 +1,2604 @@
+{
+  "items": [
+    {
+      "id": "parh1",
+      "name": "Paris Family Stay 1",
+      "formatted_address": "Paris, France",
+      "rating": 4.2,
+      "user_ratings_total": 228,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.868374,
+      "lng": 2.337412
+    },
+    {
+      "id": "parh2",
+      "name": "Paris Family Stay 2",
+      "formatted_address": "Paris, France",
+      "rating": 4.6,
+      "user_ratings_total": 319,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.85576,
+      "lng": 2.361882
+    },
+    {
+      "id": "parh3",
+      "name": "Paris Family Stay 3",
+      "formatted_address": "Paris, France",
+      "rating": 3.9,
+      "user_ratings_total": 227,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.870591,
+      "lng": 2.344751
+    },
+    {
+      "id": "parh4",
+      "name": "Paris Family Stay 4",
+      "formatted_address": "Paris, France",
+      "rating": 4.2,
+      "user_ratings_total": 185,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.845985,
+      "lng": 2.363539
+    },
+    {
+      "id": "parh5",
+      "name": "Paris Family Stay 5",
+      "formatted_address": "Paris, France",
+      "rating": 4.5,
+      "user_ratings_total": 346,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.852637,
+      "lng": 2.342159
+    },
+    {
+      "id": "parh6",
+      "name": "Paris Family Stay 6",
+      "formatted_address": "Paris, France",
+      "rating": 4.0,
+      "user_ratings_total": 343,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.850904,
+      "lng": 2.361299
+    },
+    {
+      "id": "parh7",
+      "name": "Paris Family Stay 7",
+      "formatted_address": "Paris, France",
+      "rating": 4.3,
+      "user_ratings_total": 378,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.851392,
+      "lng": 2.342088
+    },
+    {
+      "id": "parh8",
+      "name": "Paris Family Stay 8",
+      "formatted_address": "Paris, France",
+      "rating": 4.5,
+      "user_ratings_total": 372,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.867719,
+      "lng": 2.359061
+    },
+    {
+      "id": "parh9",
+      "name": "Paris Family Stay 9",
+      "formatted_address": "Paris, France",
+      "rating": 3.8,
+      "user_ratings_total": 283,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.858422,
+      "lng": 2.347172
+    },
+    {
+      "id": "parh10",
+      "name": "Paris Family Stay 10",
+      "formatted_address": "Paris, France",
+      "rating": 4.3,
+      "user_ratings_total": 315,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.85358,
+      "lng": 2.352359
+    },
+    {
+      "id": "tokh1",
+      "name": "Tokyo Family Stay 1",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 4.2,
+      "user_ratings_total": 152,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.673498,
+      "lng": 139.665187
+    },
+    {
+      "id": "tokh2",
+      "name": "Tokyo Family Stay 2",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 4.5,
+      "user_ratings_total": 148,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.669691,
+      "lng": 139.647381
+    },
+    {
+      "id": "tokh3",
+      "name": "Tokyo Family Stay 3",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 4.0,
+      "user_ratings_total": 151,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.67399,
+      "lng": 139.637424
+    },
+    {
+      "id": "tokh4",
+      "name": "Tokyo Family Stay 4",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 4.3,
+      "user_ratings_total": 345,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.669,
+      "lng": 139.655153
+    },
+    {
+      "id": "tokh5",
+      "name": "Tokyo Family Stay 5",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 4.5,
+      "user_ratings_total": 256,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.690391,
+      "lng": 139.646143
+    },
+    {
+      "id": "tokh6",
+      "name": "Tokyo Family Stay 6",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 4.0,
+      "user_ratings_total": 268,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.677643,
+      "lng": 139.651397
+    },
+    {
+      "id": "tokh7",
+      "name": "Tokyo Family Stay 7",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 4.1,
+      "user_ratings_total": 229,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.6893,
+      "lng": 139.642888
+    },
+    {
+      "id": "tokh8",
+      "name": "Tokyo Family Stay 8",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 4.6,
+      "user_ratings_total": 356,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.664761,
+      "lng": 139.637569
+    },
+    {
+      "id": "tokh9",
+      "name": "Tokyo Family Stay 9",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 3.8,
+      "user_ratings_total": 358,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.680169,
+      "lng": 139.647499
+    },
+    {
+      "id": "tokh10",
+      "name": "Tokyo Family Stay 10",
+      "formatted_address": "Tokyo, Japan",
+      "rating": 4.2,
+      "user_ratings_total": 355,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 35.678069,
+      "lng": 139.639262
+    },
+    {
+      "id": "lonh1",
+      "name": "London Family Stay 1",
+      "formatted_address": "London, UK",
+      "rating": 4.1,
+      "user_ratings_total": 261,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.505773,
+      "lng": -0.140991
+    },
+    {
+      "id": "lonh2",
+      "name": "London Family Stay 2",
+      "formatted_address": "London, UK",
+      "rating": 4.6,
+      "user_ratings_total": 312,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.520353,
+      "lng": -0.121818
+    },
+    {
+      "id": "lonh3",
+      "name": "London Family Stay 3",
+      "formatted_address": "London, UK",
+      "rating": 4.0,
+      "user_ratings_total": 284,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.498805,
+      "lng": -0.119414
+    },
+    {
+      "id": "lonh4",
+      "name": "London Family Stay 4",
+      "formatted_address": "London, UK",
+      "rating": 4.2,
+      "user_ratings_total": 281,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.494391,
+      "lng": -0.122729
+    },
+    {
+      "id": "lonh5",
+      "name": "London Family Stay 5",
+      "formatted_address": "London, UK",
+      "rating": 4.6,
+      "user_ratings_total": 361,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.507119,
+      "lng": -0.131227
+    },
+    {
+      "id": "lonh6",
+      "name": "London Family Stay 6",
+      "formatted_address": "London, UK",
+      "rating": 3.9,
+      "user_ratings_total": 299,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.492424,
+      "lng": -0.118326
+    },
+    {
+      "id": "lonh7",
+      "name": "London Family Stay 7",
+      "formatted_address": "London, UK",
+      "rating": 4.2,
+      "user_ratings_total": 354,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.495301,
+      "lng": -0.135603
+    },
+    {
+      "id": "lonh8",
+      "name": "London Family Stay 8",
+      "formatted_address": "London, UK",
+      "rating": 4.5,
+      "user_ratings_total": 279,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.504852,
+      "lng": -0.135352
+    },
+    {
+      "id": "lonh9",
+      "name": "London Family Stay 9",
+      "formatted_address": "London, UK",
+      "rating": 4.0,
+      "user_ratings_total": 456,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.515643,
+      "lng": -0.129687
+    },
+    {
+      "id": "lonh10",
+      "name": "London Family Stay 10",
+      "formatted_address": "London, UK",
+      "rating": 4.2,
+      "user_ratings_total": 357,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 51.506233,
+      "lng": -0.135491
+    },
+    {
+      "id": "newh1",
+      "name": "New York Family Stay 1",
+      "formatted_address": "New York, USA",
+      "rating": 4.2,
+      "user_ratings_total": 212,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.716136,
+      "lng": -74.001223
+    },
+    {
+      "id": "newh2",
+      "name": "New York Family Stay 2",
+      "formatted_address": "New York, USA",
+      "rating": 4.4,
+      "user_ratings_total": 145,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.707791,
+      "lng": -74.00817
+    },
+    {
+      "id": "newh3",
+      "name": "New York Family Stay 3",
+      "formatted_address": "New York, USA",
+      "rating": 3.9,
+      "user_ratings_total": 169,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.699177,
+      "lng": -74.007159
+    },
+    {
+      "id": "newh4",
+      "name": "New York Family Stay 4",
+      "formatted_address": "New York, USA",
+      "rating": 4.1,
+      "user_ratings_total": 272,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.698636,
+      "lng": -73.993147
+    },
+    {
+      "id": "newh5",
+      "name": "New York Family Stay 5",
+      "formatted_address": "New York, USA",
+      "rating": 4.4,
+      "user_ratings_total": 230,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.703734,
+      "lng": -74.016338
+    },
+    {
+      "id": "newh6",
+      "name": "New York Family Stay 6",
+      "formatted_address": "New York, USA",
+      "rating": 3.9,
+      "user_ratings_total": 319,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.722767,
+      "lng": -74.020053
+    },
+    {
+      "id": "newh7",
+      "name": "New York Family Stay 7",
+      "formatted_address": "New York, USA",
+      "rating": 4.1,
+      "user_ratings_total": 315,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.704509,
+      "lng": -73.994045
+    },
+    {
+      "id": "newh8",
+      "name": "New York Family Stay 8",
+      "formatted_address": "New York, USA",
+      "rating": 4.5,
+      "user_ratings_total": 362,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.721743,
+      "lng": -74.013244
+    },
+    {
+      "id": "newh9",
+      "name": "New York Family Stay 9",
+      "formatted_address": "New York, USA",
+      "rating": 3.9,
+      "user_ratings_total": 382,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.707654,
+      "lng": -74.019869
+    },
+    {
+      "id": "newh10",
+      "name": "New York Family Stay 10",
+      "formatted_address": "New York, USA",
+      "rating": 4.2,
+      "user_ratings_total": 288,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.703374,
+      "lng": -74.007076
+    },
+    {
+      "id": "sinh1",
+      "name": "Singapore Family Stay 1",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 4.1,
+      "user_ratings_total": 167,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.353874,
+      "lng": 103.817147
+    },
+    {
+      "id": "sinh2",
+      "name": "Singapore Family Stay 2",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 4.5,
+      "user_ratings_total": 313,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.342085,
+      "lng": 103.829675
+    },
+    {
+      "id": "sinh3",
+      "name": "Singapore Family Stay 3",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 4.0,
+      "user_ratings_total": 275,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.348759,
+      "lng": 103.813865
+    },
+    {
+      "id": "sinh4",
+      "name": "Singapore Family Stay 4",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 4.3,
+      "user_ratings_total": 293,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.358533,
+      "lng": 103.812538
+    },
+    {
+      "id": "sinh5",
+      "name": "Singapore Family Stay 5",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 4.4,
+      "user_ratings_total": 305,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.345637,
+      "lng": 103.815546
+    },
+    {
+      "id": "sinh6",
+      "name": "Singapore Family Stay 6",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 3.9,
+      "user_ratings_total": 321,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.339889,
+      "lng": 103.833563
+    },
+    {
+      "id": "sinh7",
+      "name": "Singapore Family Stay 7",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 4.2,
+      "user_ratings_total": 401,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.361339,
+      "lng": 103.821979
+    },
+    {
+      "id": "sinh8",
+      "name": "Singapore Family Stay 8",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 4.4,
+      "user_ratings_total": 407,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.344082,
+      "lng": 103.834027
+    },
+    {
+      "id": "sinh9",
+      "name": "Singapore Family Stay 9",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 3.9,
+      "user_ratings_total": 276,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.337416,
+      "lng": 103.828433
+    },
+    {
+      "id": "sinh10",
+      "name": "Singapore Family Stay 10",
+      "formatted_address": "Singapore, Singapore",
+      "rating": 4.2,
+      "user_ratings_total": 414,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 1.362037,
+      "lng": 103.829492
+    },
+    {
+      "id": "banh1",
+      "name": "Bangkok Family Stay 1",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 4.1,
+      "user_ratings_total": 175,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.758195,
+      "lng": 100.514253
+    },
+    {
+      "id": "banh2",
+      "name": "Bangkok Family Stay 2",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 4.6,
+      "user_ratings_total": 192,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.7657,
+      "lng": 100.506566
+    },
+    {
+      "id": "banh3",
+      "name": "Bangkok Family Stay 3",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 4.0,
+      "user_ratings_total": 221,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.744343,
+      "lng": 100.494307
+    },
+    {
+      "id": "banh4",
+      "name": "Bangkok Family Stay 4",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 4.2,
+      "user_ratings_total": 179,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.748276,
+      "lng": 100.502144
+    },
+    {
+      "id": "banh5",
+      "name": "Bangkok Family Stay 5",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 4.6,
+      "user_ratings_total": 317,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.746518,
+      "lng": 100.505069
+    },
+    {
+      "id": "banh6",
+      "name": "Bangkok Family Stay 6",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 3.9,
+      "user_ratings_total": 392,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.745847,
+      "lng": 100.50429
+    },
+    {
+      "id": "banh7",
+      "name": "Bangkok Family Stay 7",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 4.1,
+      "user_ratings_total": 245,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.742732,
+      "lng": 100.509291
+    },
+    {
+      "id": "banh8",
+      "name": "Bangkok Family Stay 8",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 4.5,
+      "user_ratings_total": 269,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.750358,
+      "lng": 100.504509
+    },
+    {
+      "id": "banh9",
+      "name": "Bangkok Family Stay 9",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 3.9,
+      "user_ratings_total": 324,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.745591,
+      "lng": 100.501381
+    },
+    {
+      "id": "banh10",
+      "name": "Bangkok Family Stay 10",
+      "formatted_address": "Bangkok, Thailand",
+      "rating": 4.3,
+      "user_ratings_total": 304,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 13.757436,
+      "lng": 100.507605
+    },
+    {
+      "id": "dubh1",
+      "name": "Dubai Family Stay 1",
+      "formatted_address": "Dubai, UAE",
+      "rating": 4.3,
+      "user_ratings_total": 109,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.20954,
+      "lng": 55.276563
+    },
+    {
+      "id": "dubh2",
+      "name": "Dubai Family Stay 2",
+      "formatted_address": "Dubai, UAE",
+      "rating": 4.5,
+      "user_ratings_total": 242,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.21108,
+      "lng": 55.274925
+    },
+    {
+      "id": "dubh3",
+      "name": "Dubai Family Stay 3",
+      "formatted_address": "Dubai, UAE",
+      "rating": 3.9,
+      "user_ratings_total": 145,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.192232,
+      "lng": 55.281586
+    },
+    {
+      "id": "dubh4",
+      "name": "Dubai Family Stay 4",
+      "formatted_address": "Dubai, UAE",
+      "rating": 4.3,
+      "user_ratings_total": 255,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.196719,
+      "lng": 55.274597
+    },
+    {
+      "id": "dubh5",
+      "name": "Dubai Family Stay 5",
+      "formatted_address": "Dubai, UAE",
+      "rating": 4.6,
+      "user_ratings_total": 193,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.214681,
+      "lng": 55.275542
+    },
+    {
+      "id": "dubh6",
+      "name": "Dubai Family Stay 6",
+      "formatted_address": "Dubai, UAE",
+      "rating": 4.0,
+      "user_ratings_total": 238,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.202581,
+      "lng": 55.279537
+    },
+    {
+      "id": "dubh7",
+      "name": "Dubai Family Stay 7",
+      "formatted_address": "Dubai, UAE",
+      "rating": 4.2,
+      "user_ratings_total": 224,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.203363,
+      "lng": 55.278062
+    },
+    {
+      "id": "dubh8",
+      "name": "Dubai Family Stay 8",
+      "formatted_address": "Dubai, UAE",
+      "rating": 4.5,
+      "user_ratings_total": 245,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.189961,
+      "lng": 55.274479
+    },
+    {
+      "id": "dubh9",
+      "name": "Dubai Family Stay 9",
+      "formatted_address": "Dubai, UAE",
+      "rating": 4.0,
+      "user_ratings_total": 406,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.207466,
+      "lng": 55.266159
+    },
+    {
+      "id": "dubh10",
+      "name": "Dubai Family Stay 10",
+      "formatted_address": "Dubai, UAE",
+      "rating": 4.2,
+      "user_ratings_total": 292,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 25.214135,
+      "lng": 55.270846
+    },
+    {
+      "id": "barh1",
+      "name": "Barcelona Family Stay 1",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 4.2,
+      "user_ratings_total": 229,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.37576,
+      "lng": 2.155256
+    },
+    {
+      "id": "barh2",
+      "name": "Barcelona Family Stay 2",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 4.6,
+      "user_ratings_total": 159,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.37601,
+      "lng": 2.166267
+    },
+    {
+      "id": "barh3",
+      "name": "Barcelona Family Stay 3",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 3.9,
+      "user_ratings_total": 328,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.378406,
+      "lng": 2.175886
+    },
+    {
+      "id": "barh4",
+      "name": "Barcelona Family Stay 4",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 4.2,
+      "user_ratings_total": 328,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.386338,
+      "lng": 2.175509
+    },
+    {
+      "id": "barh5",
+      "name": "Barcelona Family Stay 5",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 4.5,
+      "user_ratings_total": 197,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.396142,
+      "lng": 2.160989
+    },
+    {
+      "id": "barh6",
+      "name": "Barcelona Family Stay 6",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 4.0,
+      "user_ratings_total": 328,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.3809,
+      "lng": 2.174498
+    },
+    {
+      "id": "barh7",
+      "name": "Barcelona Family Stay 7",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 4.2,
+      "user_ratings_total": 404,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.385428,
+      "lng": 2.173036
+    },
+    {
+      "id": "barh8",
+      "name": "Barcelona Family Stay 8",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 4.5,
+      "user_ratings_total": 324,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.400053,
+      "lng": 2.157195
+    },
+    {
+      "id": "barh9",
+      "name": "Barcelona Family Stay 9",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 3.9,
+      "user_ratings_total": 363,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.376036,
+      "lng": 2.174524
+    },
+    {
+      "id": "barh10",
+      "name": "Barcelona Family Stay 10",
+      "formatted_address": "Barcelona, Spain",
+      "rating": 4.2,
+      "user_ratings_total": 334,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.388066,
+      "lng": 2.16784
+    },
+    {
+      "id": "romh1",
+      "name": "Rome Family Stay 1",
+      "formatted_address": "Rome, Italy",
+      "rating": 4.2,
+      "user_ratings_total": 190,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.914733,
+      "lng": 12.504529
+    },
+    {
+      "id": "romh2",
+      "name": "Rome Family Stay 2",
+      "formatted_address": "Rome, Italy",
+      "rating": 4.4,
+      "user_ratings_total": 175,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.9107,
+      "lng": 12.496201
+    },
+    {
+      "id": "romh3",
+      "name": "Rome Family Stay 3",
+      "formatted_address": "Rome, Italy",
+      "rating": 3.9,
+      "user_ratings_total": 246,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.914431,
+      "lng": 12.507201
+    },
+    {
+      "id": "romh4",
+      "name": "Rome Family Stay 4",
+      "formatted_address": "Rome, Italy",
+      "rating": 4.2,
+      "user_ratings_total": 279,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.901573,
+      "lng": 12.497798
+    },
+    {
+      "id": "romh5",
+      "name": "Rome Family Stay 5",
+      "formatted_address": "Rome, Italy",
+      "rating": 4.4,
+      "user_ratings_total": 347,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.906298,
+      "lng": 12.4978
+    },
+    {
+      "id": "romh6",
+      "name": "Rome Family Stay 6",
+      "formatted_address": "Rome, Italy",
+      "rating": 4.0,
+      "user_ratings_total": 352,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.899381,
+      "lng": 12.496224
+    },
+    {
+      "id": "romh7",
+      "name": "Rome Family Stay 7",
+      "formatted_address": "Rome, Italy",
+      "rating": 4.2,
+      "user_ratings_total": 368,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.907325,
+      "lng": 12.503396
+    },
+    {
+      "id": "romh8",
+      "name": "Rome Family Stay 8",
+      "formatted_address": "Rome, Italy",
+      "rating": 4.4,
+      "user_ratings_total": 306,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.910185,
+      "lng": 12.503349
+    },
+    {
+      "id": "romh9",
+      "name": "Rome Family Stay 9",
+      "formatted_address": "Rome, Italy",
+      "rating": 3.9,
+      "user_ratings_total": 397,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.898654,
+      "lng": 12.500019
+    },
+    {
+      "id": "romh10",
+      "name": "Rome Family Stay 10",
+      "formatted_address": "Rome, Italy",
+      "rating": 4.1,
+      "user_ratings_total": 452,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.905513,
+      "lng": 12.482132
+    },
+    {
+      "id": "isth1",
+      "name": "Istanbul Family Stay 1",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 4.1,
+      "user_ratings_total": 151,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.007422,
+      "lng": 28.971815
+    },
+    {
+      "id": "isth2",
+      "name": "Istanbul Family Stay 2",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 4.4,
+      "user_ratings_total": 221,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.014512,
+      "lng": 28.977627
+    },
+    {
+      "id": "isth3",
+      "name": "Istanbul Family Stay 3",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 3.9,
+      "user_ratings_total": 241,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.997759,
+      "lng": 28.985469
+    },
+    {
+      "id": "isth4",
+      "name": "Istanbul Family Stay 4",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 4.2,
+      "user_ratings_total": 336,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.016953,
+      "lng": 28.969877
+    },
+    {
+      "id": "isth5",
+      "name": "Istanbul Family Stay 5",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 4.6,
+      "user_ratings_total": 218,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.018922,
+      "lng": 28.982273
+    },
+    {
+      "id": "isth6",
+      "name": "Istanbul Family Stay 6",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 3.8,
+      "user_ratings_total": 361,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.013171,
+      "lng": 28.977024
+    },
+    {
+      "id": "isth7",
+      "name": "Istanbul Family Stay 7",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 4.2,
+      "user_ratings_total": 244,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.998502,
+      "lng": 28.982288
+    },
+    {
+      "id": "isth8",
+      "name": "Istanbul Family Stay 8",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 4.5,
+      "user_ratings_total": 419,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.006052,
+      "lng": 28.978547
+    },
+    {
+      "id": "isth9",
+      "name": "Istanbul Family Stay 9",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 4.0,
+      "user_ratings_total": 328,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 40.998219,
+      "lng": 28.975364
+    },
+    {
+      "id": "isth10",
+      "name": "Istanbul Family Stay 10",
+      "formatted_address": "Istanbul, T\u00fcrkiye",
+      "rating": 4.2,
+      "user_ratings_total": 412,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 41.000488,
+      "lng": 28.991336
+    },
+    {
+      "id": "seoh1",
+      "name": "Seoul Family Stay 1",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 4.3,
+      "user_ratings_total": 198,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.566934,
+      "lng": 126.973164
+    },
+    {
+      "id": "seoh2",
+      "name": "Seoul Family Stay 2",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 4.6,
+      "user_ratings_total": 307,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.557309,
+      "lng": 126.967792
+    },
+    {
+      "id": "seoh3",
+      "name": "Seoul Family Stay 3",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 4.0,
+      "user_ratings_total": 169,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.562295,
+      "lng": 126.988116
+    },
+    {
+      "id": "seoh4",
+      "name": "Seoul Family Stay 4",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 4.1,
+      "user_ratings_total": 184,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.577393,
+      "lng": 126.984862
+    },
+    {
+      "id": "seoh5",
+      "name": "Seoul Family Stay 5",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 4.4,
+      "user_ratings_total": 364,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.552994,
+      "lng": 126.970713
+    },
+    {
+      "id": "seoh6",
+      "name": "Seoul Family Stay 6",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 4.0,
+      "user_ratings_total": 341,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.561036,
+      "lng": 126.972907
+    },
+    {
+      "id": "seoh7",
+      "name": "Seoul Family Stay 7",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 4.3,
+      "user_ratings_total": 395,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.574783,
+      "lng": 126.975078
+    },
+    {
+      "id": "seoh8",
+      "name": "Seoul Family Stay 8",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 4.5,
+      "user_ratings_total": 304,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.554599,
+      "lng": 126.964248
+    },
+    {
+      "id": "seoh9",
+      "name": "Seoul Family Stay 9",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 3.8,
+      "user_ratings_total": 356,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.570299,
+      "lng": 126.983465
+    },
+    {
+      "id": "seoh10",
+      "name": "Seoul Family Stay 10",
+      "formatted_address": "Seoul, South Korea",
+      "rating": 4.2,
+      "user_ratings_total": 379,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 37.558594,
+      "lng": 126.972859
+    },
+    {
+      "id": "sydh1",
+      "name": "Sydney Family Stay 1",
+      "formatted_address": "Sydney, Australia",
+      "rating": 4.3,
+      "user_ratings_total": 178,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.863024,
+      "lng": 151.200098
+    },
+    {
+      "id": "sydh2",
+      "name": "Sydney Family Stay 2",
+      "formatted_address": "Sydney, Australia",
+      "rating": 4.6,
+      "user_ratings_total": 177,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.882138,
+      "lng": 151.213291
+    },
+    {
+      "id": "sydh3",
+      "name": "Sydney Family Stay 3",
+      "formatted_address": "Sydney, Australia",
+      "rating": 3.9,
+      "user_ratings_total": 165,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.877804,
+      "lng": 151.210533
+    },
+    {
+      "id": "sydh4",
+      "name": "Sydney Family Stay 4",
+      "formatted_address": "Sydney, Australia",
+      "rating": 4.1,
+      "user_ratings_total": 269,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.864085,
+      "lng": 151.209796
+    },
+    {
+      "id": "sydh5",
+      "name": "Sydney Family Stay 5",
+      "formatted_address": "Sydney, Australia",
+      "rating": 4.5,
+      "user_ratings_total": 215,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.872163,
+      "lng": 151.219272
+    },
+    {
+      "id": "sydh6",
+      "name": "Sydney Family Stay 6",
+      "formatted_address": "Sydney, Australia",
+      "rating": 4.0,
+      "user_ratings_total": 385,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.881177,
+      "lng": 151.196123
+    },
+    {
+      "id": "sydh7",
+      "name": "Sydney Family Stay 7",
+      "formatted_address": "Sydney, Australia",
+      "rating": 4.3,
+      "user_ratings_total": 345,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.858275,
+      "lng": 151.214004
+    },
+    {
+      "id": "sydh8",
+      "name": "Sydney Family Stay 8",
+      "formatted_address": "Sydney, Australia",
+      "rating": 4.6,
+      "user_ratings_total": 380,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.86913,
+      "lng": 151.206262
+    },
+    {
+      "id": "sydh9",
+      "name": "Sydney Family Stay 9",
+      "formatted_address": "Sydney, Australia",
+      "rating": 3.8,
+      "user_ratings_total": 329,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.864522,
+      "lng": 151.210349
+    },
+    {
+      "id": "sydh10",
+      "name": "Sydney Family Stay 10",
+      "formatted_address": "Sydney, Australia",
+      "rating": 4.2,
+      "user_ratings_total": 477,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": -33.873137,
+      "lng": 151.222116
+    },
+    {
+      "id": "torh1",
+      "name": "Toronto Family Stay 1",
+      "formatted_address": "Toronto, Canada",
+      "rating": 4.1,
+      "user_ratings_total": 279,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.643109,
+      "lng": -79.396281
+    },
+    {
+      "id": "torh2",
+      "name": "Toronto Family Stay 2",
+      "formatted_address": "Toronto, Canada",
+      "rating": 4.5,
+      "user_ratings_total": 306,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.64661,
+      "lng": -79.388384
+    },
+    {
+      "id": "torh3",
+      "name": "Toronto Family Stay 3",
+      "formatted_address": "Toronto, Canada",
+      "rating": 3.9,
+      "user_ratings_total": 140,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.641221,
+      "lng": -79.380345
+    },
+    {
+      "id": "torh4",
+      "name": "Toronto Family Stay 4",
+      "formatted_address": "Toronto, Canada",
+      "rating": 4.2,
+      "user_ratings_total": 281,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.652901,
+      "lng": -79.392355
+    },
+    {
+      "id": "torh5",
+      "name": "Toronto Family Stay 5",
+      "formatted_address": "Toronto, Canada",
+      "rating": 4.5,
+      "user_ratings_total": 336,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.657686,
+      "lng": -79.372834
+    },
+    {
+      "id": "torh6",
+      "name": "Toronto Family Stay 6",
+      "formatted_address": "Toronto, Canada",
+      "rating": 3.9,
+      "user_ratings_total": 386,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.660727,
+      "lng": -79.395211
+    },
+    {
+      "id": "torh7",
+      "name": "Toronto Family Stay 7",
+      "formatted_address": "Toronto, Canada",
+      "rating": 4.3,
+      "user_ratings_total": 238,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.655329,
+      "lng": -79.395515
+    },
+    {
+      "id": "torh8",
+      "name": "Toronto Family Stay 8",
+      "formatted_address": "Toronto, Canada",
+      "rating": 4.5,
+      "user_ratings_total": 281,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.644537,
+      "lng": -79.398196
+    },
+    {
+      "id": "torh9",
+      "name": "Toronto Family Stay 9",
+      "formatted_address": "Toronto, Canada",
+      "rating": 3.9,
+      "user_ratings_total": 385,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.641351,
+      "lng": -79.396879
+    },
+    {
+      "id": "torh10",
+      "name": "Toronto Family Stay 10",
+      "formatted_address": "Toronto, Canada",
+      "rating": 4.2,
+      "user_ratings_total": 456,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 43.642057,
+      "lng": -79.376445
+    },
+    {
+      "id": "vanh1",
+      "name": "Vancouver Family Stay 1",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 4.1,
+      "user_ratings_total": 213,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.29611,
+      "lng": -123.130455
+    },
+    {
+      "id": "vanh2",
+      "name": "Vancouver Family Stay 2",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 4.4,
+      "user_ratings_total": 250,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.271306,
+      "lng": -123.115096
+    },
+    {
+      "id": "vanh3",
+      "name": "Vancouver Family Stay 3",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 3.9,
+      "user_ratings_total": 172,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.280203,
+      "lng": -123.124412
+    },
+    {
+      "id": "vanh4",
+      "name": "Vancouver Family Stay 4",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 4.2,
+      "user_ratings_total": 173,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.281766,
+      "lng": -123.112675
+    },
+    {
+      "id": "vanh5",
+      "name": "Vancouver Family Stay 5",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 4.5,
+      "user_ratings_total": 228,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.27878,
+      "lng": -123.126597
+    },
+    {
+      "id": "vanh6",
+      "name": "Vancouver Family Stay 6",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 3.9,
+      "user_ratings_total": 371,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.278316,
+      "lng": -123.128895
+    },
+    {
+      "id": "vanh7",
+      "name": "Vancouver Family Stay 7",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 4.2,
+      "user_ratings_total": 312,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.291598,
+      "lng": -123.10886
+    },
+    {
+      "id": "vanh8",
+      "name": "Vancouver Family Stay 8",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 4.5,
+      "user_ratings_total": 291,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.277571,
+      "lng": -123.12602
+    },
+    {
+      "id": "vanh9",
+      "name": "Vancouver Family Stay 9",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 3.9,
+      "user_ratings_total": 311,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.278982,
+      "lng": -123.135033
+    },
+    {
+      "id": "vanh10",
+      "name": "Vancouver Family Stay 10",
+      "formatted_address": "Vancouver, Canada",
+      "rating": 4.3,
+      "user_ratings_total": 473,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 49.272405,
+      "lng": -123.121985
+    },
+    {
+      "id": "amsh1",
+      "name": "Amsterdam Family Stay 1",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 4.2,
+      "user_ratings_total": 201,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.356335,
+      "lng": 4.918427
+    },
+    {
+      "id": "amsh2",
+      "name": "Amsterdam Family Stay 2",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 4.4,
+      "user_ratings_total": 255,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.361313,
+      "lng": 4.895665
+    },
+    {
+      "id": "amsh3",
+      "name": "Amsterdam Family Stay 3",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 3.9,
+      "user_ratings_total": 211,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.380526,
+      "lng": 4.911381
+    },
+    {
+      "id": "amsh4",
+      "name": "Amsterdam Family Stay 4",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 4.2,
+      "user_ratings_total": 249,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.357893,
+      "lng": 4.896777
+    },
+    {
+      "id": "amsh5",
+      "name": "Amsterdam Family Stay 5",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 4.6,
+      "user_ratings_total": 329,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.370306,
+      "lng": 4.892161
+    },
+    {
+      "id": "amsh6",
+      "name": "Amsterdam Family Stay 6",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 3.9,
+      "user_ratings_total": 393,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.360603,
+      "lng": 4.889871
+    },
+    {
+      "id": "amsh7",
+      "name": "Amsterdam Family Stay 7",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 4.1,
+      "user_ratings_total": 353,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.367265,
+      "lng": 4.904604
+    },
+    {
+      "id": "amsh8",
+      "name": "Amsterdam Family Stay 8",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 4.5,
+      "user_ratings_total": 417,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.373458,
+      "lng": 4.894273
+    },
+    {
+      "id": "amsh9",
+      "name": "Amsterdam Family Stay 9",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 3.9,
+      "user_ratings_total": 277,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.354547,
+      "lng": 4.895677
+    },
+    {
+      "id": "amsh10",
+      "name": "Amsterdam Family Stay 10",
+      "formatted_address": "Amsterdam, Netherlands",
+      "rating": 4.1,
+      "user_ratings_total": 430,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 52.363133,
+      "lng": 4.916027
+    },
+    {
+      "id": "zurh1",
+      "name": "Zurich Family Stay 1",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 4.2,
+      "user_ratings_total": 124,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.373771,
+      "lng": 8.539018
+    },
+    {
+      "id": "zurh2",
+      "name": "Zurich Family Stay 2",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 4.4,
+      "user_ratings_total": 264,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.370849,
+      "lng": 8.553357
+    },
+    {
+      "id": "zurh3",
+      "name": "Zurich Family Stay 3",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 3.9,
+      "user_ratings_total": 277,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.375649,
+      "lng": 8.543466
+    },
+    {
+      "id": "zurh4",
+      "name": "Zurich Family Stay 4",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 4.3,
+      "user_ratings_total": 189,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.367124,
+      "lng": 8.551606
+    },
+    {
+      "id": "zurh5",
+      "name": "Zurich Family Stay 5",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 4.5,
+      "user_ratings_total": 217,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.380027,
+      "lng": 8.533961
+    },
+    {
+      "id": "zurh6",
+      "name": "Zurich Family Stay 6",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 3.9,
+      "user_ratings_total": 367,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.387193,
+      "lng": 8.533619
+    },
+    {
+      "id": "zurh7",
+      "name": "Zurich Family Stay 7",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 4.3,
+      "user_ratings_total": 250,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.38556,
+      "lng": 8.545255
+    },
+    {
+      "id": "zurh8",
+      "name": "Zurich Family Stay 8",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 4.6,
+      "user_ratings_total": 370,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.383935,
+      "lng": 8.545113
+    },
+    {
+      "id": "zurh9",
+      "name": "Zurich Family Stay 9",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 4.0,
+      "user_ratings_total": 358,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.366392,
+      "lng": 8.538429
+    },
+    {
+      "id": "zurh10",
+      "name": "Zurich Family Stay 10",
+      "formatted_address": "Zurich, Switzerland",
+      "rating": 4.2,
+      "user_ratings_total": 369,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 47.375495,
+      "lng": 8.550405
+    },
+    {
+      "id": "vieh1",
+      "name": "Vienna Family Stay 1",
+      "formatted_address": "Vienna, Austria",
+      "rating": 4.3,
+      "user_ratings_total": 191,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.208464,
+      "lng": 16.362928
+    },
+    {
+      "id": "vieh2",
+      "name": "Vienna Family Stay 2",
+      "formatted_address": "Vienna, Austria",
+      "rating": 4.5,
+      "user_ratings_total": 316,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.213229,
+      "lng": 16.363055
+    },
+    {
+      "id": "vieh3",
+      "name": "Vienna Family Stay 3",
+      "formatted_address": "Vienna, Austria",
+      "rating": 4.0,
+      "user_ratings_total": 170,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.193885,
+      "lng": 16.36194
+    },
+    {
+      "id": "vieh4",
+      "name": "Vienna Family Stay 4",
+      "formatted_address": "Vienna, Austria",
+      "rating": 4.1,
+      "user_ratings_total": 162,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.201261,
+      "lng": 16.3708
+    },
+    {
+      "id": "vieh5",
+      "name": "Vienna Family Stay 5",
+      "formatted_address": "Vienna, Austria",
+      "rating": 4.5,
+      "user_ratings_total": 373,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.218024,
+      "lng": 16.384263
+    },
+    {
+      "id": "vieh6",
+      "name": "Vienna Family Stay 6",
+      "formatted_address": "Vienna, Austria",
+      "rating": 3.9,
+      "user_ratings_total": 243,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.210437,
+      "lng": 16.359685
+    },
+    {
+      "id": "vieh7",
+      "name": "Vienna Family Stay 7",
+      "formatted_address": "Vienna, Austria",
+      "rating": 4.2,
+      "user_ratings_total": 348,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.215839,
+      "lng": 16.380365
+    },
+    {
+      "id": "vieh8",
+      "name": "Vienna Family Stay 8",
+      "formatted_address": "Vienna, Austria",
+      "rating": 4.4,
+      "user_ratings_total": 289,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.210044,
+      "lng": 16.373312
+    },
+    {
+      "id": "vieh9",
+      "name": "Vienna Family Stay 9",
+      "formatted_address": "Vienna, Austria",
+      "rating": 3.9,
+      "user_ratings_total": 370,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.220694,
+      "lng": 16.375991
+    },
+    {
+      "id": "vieh10",
+      "name": "Vienna Family Stay 10",
+      "formatted_address": "Vienna, Austria",
+      "rating": 4.2,
+      "user_ratings_total": 299,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 48.199402,
+      "lng": 16.359774
+    },
+    {
+      "id": "lish1",
+      "name": "Lisbon Family Stay 1",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 4.2,
+      "user_ratings_total": 138,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.730499,
+      "lng": -9.14138
+    },
+    {
+      "id": "lish2",
+      "name": "Lisbon Family Stay 2",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 4.6,
+      "user_ratings_total": 237,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.731049,
+      "lng": -9.126262
+    },
+    {
+      "id": "lish3",
+      "name": "Lisbon Family Stay 3",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 3.8,
+      "user_ratings_total": 334,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.712667,
+      "lng": -9.153587
+    },
+    {
+      "id": "lish4",
+      "name": "Lisbon Family Stay 4",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 4.3,
+      "user_ratings_total": 333,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.720062,
+      "lng": -9.144407
+    },
+    {
+      "id": "lish5",
+      "name": "Lisbon Family Stay 5",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 4.6,
+      "user_ratings_total": 351,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.724224,
+      "lng": -9.145819
+    },
+    {
+      "id": "lish6",
+      "name": "Lisbon Family Stay 6",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 3.9,
+      "user_ratings_total": 301,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.726499,
+      "lng": -9.136066
+    },
+    {
+      "id": "lish7",
+      "name": "Lisbon Family Stay 7",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 4.2,
+      "user_ratings_total": 398,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.710228,
+      "lng": -9.141687
+    },
+    {
+      "id": "lish8",
+      "name": "Lisbon Family Stay 8",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 4.5,
+      "user_ratings_total": 359,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.712885,
+      "lng": -9.146467
+    },
+    {
+      "id": "lish9",
+      "name": "Lisbon Family Stay 9",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 3.9,
+      "user_ratings_total": 438,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.712249,
+      "lng": -9.143401
+    },
+    {
+      "id": "lish10",
+      "name": "Lisbon Family Stay 10",
+      "formatted_address": "Lisbon, Portugal",
+      "rating": 4.2,
+      "user_ratings_total": 304,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 38.719262,
+      "lng": -9.146113
+    },
+    {
+      "id": "prah1",
+      "name": "Prague Family Stay 1",
+      "formatted_address": "Prague, Czechia",
+      "rating": 4.2,
+      "user_ratings_total": 245,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.066281,
+      "lng": 14.442499
+    },
+    {
+      "id": "prah2",
+      "name": "Prague Family Stay 2",
+      "formatted_address": "Prague, Czechia",
+      "rating": 4.5,
+      "user_ratings_total": 160,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.089809,
+      "lng": 14.449247
+    },
+    {
+      "id": "prah3",
+      "name": "Prague Family Stay 3",
+      "formatted_address": "Prague, Czechia",
+      "rating": 3.9,
+      "user_ratings_total": 279,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.088864,
+      "lng": 14.441301
+    },
+    {
+      "id": "prah4",
+      "name": "Prague Family Stay 4",
+      "formatted_address": "Prague, Czechia",
+      "rating": 4.2,
+      "user_ratings_total": 177,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.080219,
+      "lng": 14.436767
+    },
+    {
+      "id": "prah5",
+      "name": "Prague Family Stay 5",
+      "formatted_address": "Prague, Czechia",
+      "rating": 4.5,
+      "user_ratings_total": 297,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.06252,
+      "lng": 14.445677
+    },
+    {
+      "id": "prah6",
+      "name": "Prague Family Stay 6",
+      "formatted_address": "Prague, Czechia",
+      "rating": 3.8,
+      "user_ratings_total": 294,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.074139,
+      "lng": 14.434679
+    },
+    {
+      "id": "prah7",
+      "name": "Prague Family Stay 7",
+      "formatted_address": "Prague, Czechia",
+      "rating": 4.2,
+      "user_ratings_total": 313,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.066994,
+      "lng": 14.432407
+    },
+    {
+      "id": "prah8",
+      "name": "Prague Family Stay 8",
+      "formatted_address": "Prague, Czechia",
+      "rating": 4.5,
+      "user_ratings_total": 253,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.063985,
+      "lng": 14.425051
+    },
+    {
+      "id": "prah9",
+      "name": "Prague Family Stay 9",
+      "formatted_address": "Prague, Czechia",
+      "rating": 3.9,
+      "user_ratings_total": 260,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.073742,
+      "lng": 14.448467
+    },
+    {
+      "id": "prah10",
+      "name": "Prague Family Stay 10",
+      "formatted_address": "Prague, Czechia",
+      "rating": 4.2,
+      "user_ratings_total": 441,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 50.066936,
+      "lng": 14.432696
+    },
+    {
+      "id": "honh1",
+      "name": "Hong Kong Family Stay 1",
+      "formatted_address": "Hong Kong, China",
+      "rating": 4.2,
+      "user_ratings_total": 107,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.316895,
+      "lng": 114.175567
+    },
+    {
+      "id": "honh2",
+      "name": "Hong Kong Family Stay 2",
+      "formatted_address": "Hong Kong, China",
+      "rating": 4.4,
+      "user_ratings_total": 218,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.312042,
+      "lng": 114.17008
+    },
+    {
+      "id": "honh3",
+      "name": "Hong Kong Family Stay 3",
+      "formatted_address": "Hong Kong, China",
+      "rating": 3.8,
+      "user_ratings_total": 291,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.306378,
+      "lng": 114.169363
+    },
+    {
+      "id": "honh4",
+      "name": "Hong Kong Family Stay 4",
+      "formatted_address": "Hong Kong, China",
+      "rating": 4.2,
+      "user_ratings_total": 270,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.330049,
+      "lng": 114.163562
+    },
+    {
+      "id": "honh5",
+      "name": "Hong Kong Family Stay 5",
+      "formatted_address": "Hong Kong, China",
+      "rating": 4.5,
+      "user_ratings_total": 281,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.331626,
+      "lng": 114.16867
+    },
+    {
+      "id": "honh6",
+      "name": "Hong Kong Family Stay 6",
+      "formatted_address": "Hong Kong, China",
+      "rating": 4.0,
+      "user_ratings_total": 246,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.326873,
+      "lng": 114.165226
+    },
+    {
+      "id": "honh7",
+      "name": "Hong Kong Family Stay 7",
+      "formatted_address": "Hong Kong, China",
+      "rating": 4.2,
+      "user_ratings_total": 318,
+      "price_level": 4,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.32198,
+      "lng": 114.177225
+    },
+    {
+      "id": "honh8",
+      "name": "Hong Kong Family Stay 8",
+      "formatted_address": "Hong Kong, China",
+      "rating": 4.4,
+      "user_ratings_total": 256,
+      "price_level": 1,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.307875,
+      "lng": 114.184249
+    },
+    {
+      "id": "honh9",
+      "name": "Hong Kong Family Stay 9",
+      "formatted_address": "Hong Kong, China",
+      "rating": 3.9,
+      "user_ratings_total": 302,
+      "price_level": 2,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.324331,
+      "lng": 114.180441
+    },
+    {
+      "id": "honh10",
+      "name": "Hong Kong Family Stay 10",
+      "formatted_address": "Hong Kong, China",
+      "rating": 4.3,
+      "user_ratings_total": 403,
+      "price_level": 3,
+      "types": [
+        "lodging"
+      ],
+      "lat": 22.312224,
+      "lng": 114.181377
+    }
+  ]
+}
