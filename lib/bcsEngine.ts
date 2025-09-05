@@ -1,98 +1,90 @@
 // lib/bcsEngine.ts
-// Baby Comfort Score from live hotel features + light city modifiers.
 
 export type BCSInputs = {
-  hotel: {
-    rating?: number;               // 1..5 (Google)
-    user_ratings_total?: number;   // volume proxy
-    price_level?: number;          // 0..4 (Google)  -- missing = undefined
-    types?: string[];              // ["lodging","hotel",...]
-    name?: string;
-  };
-  cityMod?: {
-    transit_ease?: number;     // 0..100
-    stroller?: number;         // 0..100
-    heat_risk?: number;        // 0..100 (higher=worse)
-    noise?: number;            // 0..100 (higher=worse)
-  };
-  ageBand: "0-3m" | "4-6m" | "7-12m" | "1-3y";
-  directOnly: boolean;
+  hotel?: any;
+  cityMod?: Partial<CityMod>;
+  ageBand?: "0-6m" | "7-12m" | "13-24m" | "2-4y" | "5y+";
+  directOnly?: boolean;
 };
 
 export type BCS = {
-  total: number;                  // 0..100
-  pace: "Easy"|"Moderate"|"Active";
-  napBlocks: number;              // 1..3
+  total: number;                 // 0..100
+  pace: "Slow" | "Moderate" | "Fast";
+  napBlocks: number;             // suggested naps per day
   breakdown: { label: string; score: number }[];
 };
 
-const clamp = (n:number,min=0,max=100)=>Math.max(min,Math.min(max,n));
+export type CityMod = {
+  stroller: number;   // 0..1
+  hygiene: number;    // 0..1
+  accessibility: number; // 0..1
+  lowStim: number;    // 0..1
+};
 
+const clamp = (x: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, x));
+
+/**
+ * Defensive BCS calculator that NEVER throws when hotel fields are missing.
+ * If hotel.* is undefined, we use sane defaults so UI always renders.
+ */
 export function computeBCS(input: BCSInputs): BCS {
-  const { hotel, cityMod={}, ageBand, directOnly } = input;
-  const rating  = hotel.rating ?? 4.0;
-  const volume  = hotel.user_ratings_total ?? 50;
-  const price   = hotel.price_level; // 0..4 (undefined allowed)
-  const types   = (hotel.types ?? []).map(t=>t.toLowerCase());
-  const name    = (hotel.name ?? "").toLowerCase();
+  const { hotel = {}, cityMod = {}, ageBand, directOnly } = input;
 
-  // --- Age → nap blocks
-  const napBlocks = ageBand==="0-3m" ? 3 : ageBand==="4-6m" ? 3 : ageBand==="7-12m" ? 2 : 1;
+  // --- Defensive defaults
+  const rating: number = hotel.rating ?? 4.0;                   // 1..5
+  const volume: number = hotel.user_ratings_total ?? 50;        // 0..∞
+  const price: number = hotel.price_level ?? 2;                  // 0..4
+  const types: string[] = (hotel.types ?? []).map((t: string) => String(t).toLowerCase());
 
-  // --- Hygiene (50% hotel, 50% city)
-  // hotel hygiene proxy: rating + volume quality
-  const volBoost = volume >= 1000 ? 10 : volume >= 200 ? 6 : volume >= 50 ? 3 : 0;
-  let hygieneHotel = clamp((rating - 3.5) * 20 + 70 + volBoost, 40, 100); // 4.0→80, 4.5→90, etc.
+  // City modifiers (0..1), default neutral 0.6-0.7-ish
+  const stroller = clamp(cityMod.stroller ?? 0.65, 0, 1);
+  const hygiene = clamp(cityMod.hygiene ?? 0.70, 0, 1);
+  const accessibility = clamp(cityMod.accessibility ?? 0.75, 0, 1);
+  const lowStim = clamp(cityMod.lowStim ?? 0.60, 0, 1);
 
-  // city hygiene proxy: stroller & transit uplift; heat/noise reduce
-  const cm = {
-    transit_ease: cityMod.transit_ease ?? 70,
-    stroller:     cityMod.stroller ?? 70,
-    heat_risk:    cityMod.heat_risk ?? 30, // lower is better
-    noise:        cityMod.noise ?? 40      // lower is better
-  };
-  const hygieneCity = clamp(
-    60 + (cm.stroller-50)*0.3 + (cm.transit_ease-50)*0.2 - (cm.heat_risk-30)*0.25 - (cm.noise-40)*0.15,
-    30, 95
+  // --- Feature heuristics
+  const hasCribHint = types.some((t) => t.includes("lodging") || t.includes("hotel"));
+  const pricePenalty = clamp((price - 2) / 3, 0, 1); // higher price reduces score slightly
+
+  // Normalize review signal to 0..1
+  const ratingSignal = clamp((rating - 3) / 2, 0, 1); // 3→0, 5→1
+  const volumeSignal = clamp(Math.log10(1 + volume) / 4, 0, 1); // >1k tends toward 1
+
+  // Base safety/comfort pillars (weighted)
+  const safetyScore = 0.5 * hygiene + 0.5 * accessibility;           // 0..1
+  const comfortScore = 0.5 * stroller + 0.5 * lowStim;                // 0..1
+
+  // Hotel contribution
+  const hotelSignal = 0.7 * ratingSignal + 0.3 * volumeSignal - 0.15 * pricePenalty;
+  const hotelScore = clamp(hotelSignal, 0, 1);
+
+  // Direct flight preference bumps lowStim slightly (less travel stress)
+  const travelMod = directOnly ? 0.05 : 0;
+
+  // Roll-up (weights tuned for “infant-friendly”)
+  const total01 = clamp(
+    0.40 * safetyScore +
+      0.25 * comfortScore +
+      0.30 * hotelScore +
+      0.05 * travelMod +
+      (hasCribHint ? 0.03 : 0),
+    0,
+    1
   );
-  const hygiene = Math.round(hygieneHotel*0.55 + hygieneCity*0.45);
 
-  // --- Accessibility
-  // price_level can correlate with elevator / lobby / room size; “hostel” penalised
-  let accessHotel = 70;
-  if (price !== undefined) accessHotel += (price*5); // 0..20 boost
-  if (types.includes("hostel") || name.includes("hostel")) accessHotel -= 15;
-  if (types.includes("apartment")) accessHotel -= 5; // elevators less guaranteed
+  // Pace & naps
+  const napBlocks = ageBand === "0-6m" ? 3 : ageBand === "7-12m" ? 2 : 1;
+  const pace: BCS["pace"] = ageBand === "0-6m" ? "Slow" : ageBand === "7-12m" ? "Moderate" : "Fast";
 
-  const accessCity = clamp(65 + (cm.transit_ease-50)*0.5 + (cm.stroller-50)*0.5, 40, 95);
-  const accessibility = Math.round(clamp(accessHotel,40,90)*0.6 + accessCity*0.4);
-
-  // --- Low stimulation (quiet)
-  // Use price level (higher tends to quieter), avoid “party” words
-  const partyWords = ["party","club","hostel","bar"];
-  const namePenalty = partyWords.some(w=>name.includes(w)) ? 15 : 0;
-  let quietHotel = 65 + (price!==undefined ? price*6 : 0) - namePenalty; // price 0..4 → 0..24
-  if (types.includes("resort")) quietHotel -= 5; // activity-heavy
-
-  const quietCity = clamp(70 - (cm.noise-40)*0.6 - (cm.heat_risk-30)*0.2, 35, 90);
-  const lowStim = Math.round(clamp(quietHotel,35,90)*0.55 + quietCity*0.45);
-
-  // --- Flight adjustment
-  const travelAdj = directOnly ? 0 : -6;
-
-  // Weighted total
-  const totalRaw = hygiene*0.4 + accessibility*0.3 + lowStim*0.3 + travelAdj;
-  const total = clamp(Math.round(totalRaw), 20, 99);
-
-  const pace: BCS["pace"] = napBlocks>=3 ? "Easy" : napBlocks===2 ? "Moderate" : "Active";
   return {
-    total,
+    total: Math.round(total01 * 100),
     pace,
     napBlocks,
     breakdown: [
-      { label: "Hygiene",      score: hygiene },
-      { label: "Accessibility",score: accessibility },
-      { label: "Low-stimulation", score: lowStim }
-    ]
+      { label: "Healthcare/Hygiene", score: Math.round(hygiene * 100) },
+      { label: "Accessibility", score: Math.round(accessibility * 100) },
+      { label: "Stroller/Low-stim", score: Math.round(comfortScore * 100) },
+      { label: "Hotel reviews", score: Math.round(hotelScore * 100) },
+    ],
   };
 }

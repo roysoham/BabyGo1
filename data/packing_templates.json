@@ -1,1 +1,163 @@
-[]
+{
+  "meta": {
+    "ageBands": [
+      "0-3m",
+      "4-6m",
+      "7-12m",
+      "1-3y",
+      "3-5y"
+    ],
+    "climates": [
+      "temperate",
+      "tropical",
+      "hot-arid",
+      "cold",
+      "monsoon"
+    ]
+  },
+  "templates": {
+    "temperate": {
+      "universal": [
+        "Diapers (8/day)",
+        "Wipes",
+        "Changing mat",
+        "Diaper cream",
+        "Hand sanitizer",
+        "Portable changing kit",
+        "Baby sunscreen (SPF 50+, 6m+)",
+        "Thermometer",
+        "Paracetamol/Acetaminophen (dose per pediatric advice)",
+        "Nasal aspirator",
+        "Basic first-aid kit",
+        "Stroller rain cover",
+        "Light blanket"
+      ],
+      "feeding": [
+        "Formula/breastmilk bags",
+        "Bottles (3-4)",
+        "Sterilizing tablets",
+        "Bottle brush",
+        "Snacks (age-appropriate)",
+        "Sippy cup",
+        "Bibs (2-3)"
+      ],
+      "clothing": [
+        "Onesies x5",
+        "Socks x4",
+        "Cardigan x1",
+        "Jacket (light) x1",
+        "Sleepwear x3",
+        "Sun hat"
+      ]
+    },
+    "tropical": {
+      "universal": [
+        "Diapers (10/day)",
+        "Wipes",
+        "Changing mat",
+        "Baby sunscreen SPF 50+",
+        "After-sun aloe",
+        "Electrolyte sachets",
+        "Insect repellent (baby-safe)",
+        "Hand sanitizer",
+        "Thermometer",
+        "Stroller fan",
+        "UV stroller cover",
+        "Light muslin blankets (2)"
+      ],
+      "feeding": [
+        "Formula/milk bags",
+        "Bottles (4-5)",
+        "Sterilizing tablets",
+        "Bottle brush",
+        "Snacks"
+      ],
+      "clothing": [
+        "Short-sleeve onesies x6",
+        "Shorts x3",
+        "Sun hat",
+        "Swim diaper",
+        "Sandals",
+        "Light sleepwear x3"
+      ]
+    },
+    "hot-arid": {
+      "universal": [
+        "Diapers (8/day)",
+        "Wipes",
+        "Baby sunscreen SPF 50+",
+        "Hydration packs",
+        "Electrolyte sachets",
+        "Stroller sun shade",
+        "Cooler gel packs",
+        "Thermometer",
+        "Hand sanitizer"
+      ],
+      "feeding": [
+        "Formula/water",
+        "Bottles (4)",
+        "Sterilizing tablets",
+        "Bottle brush"
+      ],
+      "clothing": [
+        "Long-sleeve UV shirts x3",
+        "Light pants x3",
+        "Wide-brim sun hat",
+        "Breathable sleepwear x3"
+      ]
+    },
+    "cold": {
+      "universal": [
+        "Diapers (8/day)",
+        "Wipes",
+        "Barrier cream",
+        "Humidifier travel size (optional)",
+        "Thermometer",
+        "Hand sanitizer",
+        "Blanket (warm)",
+        "Stroller footmuff",
+        "Rain/snow cover"
+      ],
+      "feeding": [
+        "Formula/milk",
+        "Insulated bottle bag",
+        "Bottles (3-4)",
+        "Sterilizing tablets",
+        "Snacks"
+      ],
+      "clothing": [
+        "Thermal onesies x3",
+        "Sweaters x2",
+        "Snow suit",
+        "Beanie",
+        "Mittens",
+        "Warm socks x4"
+      ]
+    },
+    "monsoon": {
+      "universal": [
+        "Diapers (9/day)",
+        "Wipes",
+        "Stroller rain cover",
+        "Waterproof shoe covers",
+        "Quick-dry towels",
+        "Baby sunscreen SPF 50+",
+        "Insect repellent (baby-safe)",
+        "Electrolyte sachets",
+        "Hand sanitizer"
+      ],
+      "feeding": [
+        "Formula/milk",
+        "Bottles (4)",
+        "Sterilizing tablets",
+        "Bottle brush"
+      ],
+      "clothing": [
+        "Quick-dry onesies x5",
+        "Light rain jacket",
+        "Umbrella",
+        "Waterproof pouch bags"
+      ]
+    }
+  }
+}

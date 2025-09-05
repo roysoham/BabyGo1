@@ -1,1 +1,782 @@
-[]
+[
+  {
+    "country": "Global",
+    "type": "emergency",
+    "name": "Universal Emergency (mobile)",
+    "phone": "112"
+  },
+  {
+    "country": "USA",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "911"
+  },
+  {
+    "country": "Canada",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "911"
+  },
+  {
+    "country": "UK",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "999"
+  },
+  {
+    "country": "France",
+    "type": "emergency",
+    "name": "Emergency (SAMU/Police/Fire)",
+    "phone": "112"
+  },
+  {
+    "country": "Japan",
+    "type": "emergency",
+    "name": "Ambulance/Fire \u2022 Police",
+    "phone": "119 / 110"
+  },
+  {
+    "country": "Spain",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "112"
+  },
+  {
+    "country": "Italy",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "112"
+  },
+  {
+    "country": "Thailand",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "191"
+  },
+  {
+    "country": "UAE",
+    "type": "emergency",
+    "name": "Ambulance \u2022 Police",
+    "phone": "998 \u2022 999"
+  },
+  {
+    "country": "Singapore",
+    "type": "emergency",
+    "name": "Police \u2022 Ambulance/Fire",
+    "phone": "999 \u2022 995"
+  },
+  {
+    "country": "Turkey",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "112"
+  },
+  {
+    "country": "South Korea",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "112 / 119"
+  },
+  {
+    "country": "Australia",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "000"
+  },
+  {
+    "country": "Netherlands",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "112"
+  },
+  {
+    "country": "Switzerland",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "112"
+  },
+  {
+    "country": "Austria",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "112"
+  },
+  {
+    "country": "Portugal",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "112"
+  },
+  {
+    "country": "Czechia",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "112"
+  },
+  {
+    "country": "China (HK SAR)",
+    "type": "emergency",
+    "name": "Emergency",
+    "phone": "999"
+  },
+  {
+    "city": "Paris, France",
+    "country": "France",
+    "type": "pediatric_clinic",
+    "name": "Paris Children's Clinic A",
+    "phone": "",
+    "address": "Paris, France",
+    "lat": 48.852335,
+    "lng": 2.346761,
+    "speaks_english": true
+  },
+  {
+    "city": "Paris, France",
+    "country": "France",
+    "type": "pediatric_clinic",
+    "name": "Paris Children's Clinic B",
+    "phone": "",
+    "address": "Paris, France",
+    "lat": 48.863961,
+    "lng": 2.344076,
+    "speaks_english": true
+  },
+  {
+    "city": "Paris, France",
+    "country": "France",
+    "type": "24h_pharmacy",
+    "name": "Paris 24h Pharmacy",
+    "phone": "",
+    "address": "Paris, France",
+    "lat": 48.850581,
+    "lng": 2.359059,
+    "speaks_english": true
+  },
+  {
+    "city": "Tokyo, Japan",
+    "country": "Japan",
+    "type": "pediatric_clinic",
+    "name": "Tokyo Children's Clinic A",
+    "phone": "",
+    "address": "Tokyo, Japan",
+    "lat": 35.681948,
+    "lng": 139.65998,
+    "speaks_english": true
+  },
+  {
+    "city": "Tokyo, Japan",
+    "country": "Japan",
+    "type": "pediatric_clinic",
+    "name": "Tokyo Children's Clinic B",
+    "phone": "",
+    "address": "Tokyo, Japan",
+    "lat": 35.671226,
+    "lng": 139.648504,
+    "speaks_english": true
+  },
+  {
+    "city": "Tokyo, Japan",
+    "country": "Japan",
+    "type": "24h_pharmacy",
+    "name": "Tokyo 24h Pharmacy",
+    "phone": "",
+    "address": "Tokyo, Japan",
+    "lat": 35.67662,
+    "lng": 139.640973,
+    "speaks_english": true
+  },
+  {
+    "city": "London, UK",
+    "country": "UK",
+    "type": "pediatric_clinic",
+    "name": "London Children's Clinic A",
+    "phone": "",
+    "address": "London, UK",
+    "lat": 51.499897,
+    "lng": -0.1376,
+    "speaks_english": true
+  },
+  {
+    "city": "London, UK",
+    "country": "UK",
+    "type": "pediatric_clinic",
+    "name": "London Children's Clinic B",
+    "phone": "",
+    "address": "London, UK",
+    "lat": 51.512715,
+    "lng": -0.124338,
+    "speaks_english": true
+  },
+  {
+    "city": "London, UK",
+    "country": "UK",
+    "type": "24h_pharmacy",
+    "name": "London 24h Pharmacy",
+    "phone": "",
+    "address": "London, UK",
+    "lat": 51.504364,
+    "lng": -0.129723,
+    "speaks_english": true
+  },
+  {
+    "city": "New York, USA",
+    "country": "USA",
+    "type": "pediatric_clinic",
+    "name": "New York Children's Clinic A",
+    "phone": "",
+    "address": "New York, USA",
+    "lat": 40.714822,
+    "lng": -74.000547,
+    "speaks_english": true
+  },
+  {
+    "city": "New York, USA",
+    "country": "USA",
+    "type": "pediatric_clinic",
+    "name": "New York Children's Clinic B",
+    "phone": "",
+    "address": "New York, USA",
+    "lat": 40.711026,
+    "lng": -74.012124,
+    "speaks_english": true
+  },
+  {
+    "city": "New York, USA",
+    "country": "USA",
+    "type": "24h_pharmacy",
+    "name": "New York 24h Pharmacy",
+    "phone": "",
+    "address": "New York, USA",
+    "lat": 40.705368,
+    "lng": -74.014272,
+    "speaks_english": true
+  },
+  {
+    "city": "Singapore, Singapore",
+    "country": "Singapore",
+    "type": "pediatric_clinic",
+    "name": "Singapore Children's Clinic A",
+    "phone": "",
+    "address": "Singapore, Singapore",
+    "lat": 1.36103,
+    "lng": 103.820372,
+    "speaks_english": true
+  },
+  {
+    "city": "Singapore, Singapore",
+    "country": "Singapore",
+    "type": "pediatric_clinic",
+    "name": "Singapore Children's Clinic B",
+    "phone": "",
+    "address": "Singapore, Singapore",
+    "lat": 1.34547,
+    "lng": 103.827879,
+    "speaks_english": true
+  },
+  {
+    "city": "Singapore, Singapore",
+    "country": "Singapore",
+    "type": "24h_pharmacy",
+    "name": "Singapore 24h Pharmacy",
+    "phone": "",
+    "address": "Singapore, Singapore",
+    "lat": 1.35143,
+    "lng": 103.817854,
+    "speaks_english": true
+  },
+  {
+    "city": "Bangkok, Thailand",
+    "country": "Thailand",
+    "type": "pediatric_clinic",
+    "name": "Bangkok Children's Clinic A",
+    "phone": "",
+    "address": "Bangkok, Thailand",
+    "lat": 13.753791,
+    "lng": 100.493199,
+    "speaks_english": true
+  },
+  {
+    "city": "Bangkok, Thailand",
+    "country": "Thailand",
+    "type": "pediatric_clinic",
+    "name": "Bangkok Children's Clinic B",
+    "phone": "",
+    "address": "Bangkok, Thailand",
+    "lat": 13.747248,
+    "lng": 100.495462,
+    "speaks_english": true
+  },
+  {
+    "city": "Bangkok, Thailand",
+    "country": "Thailand",
+    "type": "24h_pharmacy",
+    "name": "Bangkok 24h Pharmacy",
+    "phone": "",
+    "address": "Bangkok, Thailand",
+    "lat": 13.757338,
+    "lng": 100.505024,
+    "speaks_english": true
+  },
+  {
+    "city": "Dubai, UAE",
+    "country": "UAE",
+    "type": "pediatric_clinic",
+    "name": "Dubai Children's Clinic A",
+    "phone": "",
+    "address": "Dubai, UAE",
+    "lat": 25.20724,
+    "lng": 55.267921,
+    "speaks_english": true
+  },
+  {
+    "city": "Dubai, UAE",
+    "country": "UAE",
+    "type": "pediatric_clinic",
+    "name": "Dubai Children's Clinic B",
+    "phone": "",
+    "address": "Dubai, UAE",
+    "lat": 25.205525,
+    "lng": 55.270781,
+    "speaks_english": true
+  },
+  {
+    "city": "Dubai, UAE",
+    "country": "UAE",
+    "type": "24h_pharmacy",
+    "name": "Dubai 24h Pharmacy",
+    "phone": "",
+    "address": "Dubai, UAE",
+    "lat": 25.199869,
+    "lng": 55.263576,
+    "speaks_english": true
+  },
+  {
+    "city": "Barcelona, Spain",
+    "country": "Spain",
+    "type": "pediatric_clinic",
+    "name": "Barcelona Children's Clinic A",
+    "phone": "",
+    "address": "Barcelona, Spain",
+    "lat": 41.381573,
+    "lng": 2.168038,
+    "speaks_english": true
+  },
+  {
+    "city": "Barcelona, Spain",
+    "country": "Spain",
+    "type": "pediatric_clinic",
+    "name": "Barcelona Children's Clinic B",
+    "phone": "",
+    "address": "Barcelona, Spain",
+    "lat": 41.381207,
+    "lng": 2.161463,
+    "speaks_english": true
+  },
+  {
+    "city": "Barcelona, Spain",
+    "country": "Spain",
+    "type": "24h_pharmacy",
+    "name": "Barcelona 24h Pharmacy",
+    "phone": "",
+    "address": "Barcelona, Spain",
+    "lat": 41.392452,
+    "lng": 2.173126,
+    "speaks_english": true
+  },
+  {
+    "city": "Rome, Italy",
+    "country": "Italy",
+    "type": "pediatric_clinic",
+    "name": "Rome Children's Clinic A",
+    "phone": "",
+    "address": "Rome, Italy",
+    "lat": 41.899685,
+    "lng": 12.489083,
+    "speaks_english": true
+  },
+  {
+    "city": "Rome, Italy",
+    "country": "Italy",
+    "type": "pediatric_clinic",
+    "name": "Rome Children's Clinic B",
+    "phone": "",
+    "address": "Rome, Italy",
+    "lat": 41.897156,
+    "lng": 12.489602,
+    "speaks_english": true
+  },
+  {
+    "city": "Rome, Italy",
+    "country": "Italy",
+    "type": "24h_pharmacy",
+    "name": "Rome 24h Pharmacy",
+    "phone": "",
+    "address": "Rome, Italy",
+    "lat": 41.901273,
+    "lng": 12.501707,
+    "speaks_english": true
+  },
+  {
+    "city": "Istanbul, T\u00fcrkiye",
+    "country": "Turkey",
+    "type": "pediatric_clinic",
+    "name": "Istanbul Children's Clinic A",
+    "phone": "",
+    "address": "Istanbul, T\u00fcrkiye",
+    "lat": 41.013881,
+    "lng": 28.978355,
+    "speaks_english": true
+  },
+  {
+    "city": "Istanbul, T\u00fcrkiye",
+    "country": "Turkey",
+    "type": "pediatric_clinic",
+    "name": "Istanbul Children's Clinic B",
+    "phone": "",
+    "address": "Istanbul, T\u00fcrkiye",
+    "lat": 41.017656,
+    "lng": 28.970653,
+    "speaks_english": true
+  },
+  {
+    "city": "Istanbul, T\u00fcrkiye",
+    "country": "Turkey",
+    "type": "24h_pharmacy",
+    "name": "Istanbul 24h Pharmacy",
+    "phone": "",
+    "address": "Istanbul, T\u00fcrkiye",
+    "lat": 41.017823,
+    "lng": 28.975518,
+    "speaks_english": true
+  },
+  {
+    "city": "Seoul, South Korea",
+    "country": "South Korea",
+    "type": "pediatric_clinic",
+    "name": "Seoul Children's Clinic A",
+    "phone": "",
+    "address": "Seoul, South Korea",
+    "lat": 37.575221,
+    "lng": 126.986977,
+    "speaks_english": true
+  },
+  {
+    "city": "Seoul, South Korea",
+    "country": "South Korea",
+    "type": "pediatric_clinic",
+    "name": "Seoul Children's Clinic B",
+    "phone": "",
+    "address": "Seoul, South Korea",
+    "lat": 37.561043,
+    "lng": 126.971229,
+    "speaks_english": true
+  },
+  {
+    "city": "Seoul, South Korea",
+    "country": "South Korea",
+    "type": "24h_pharmacy",
+    "name": "Seoul 24h Pharmacy",
+    "phone": "",
+    "address": "Seoul, South Korea",
+    "lat": 37.557128,
+    "lng": 126.979569,
+    "speaks_english": true
+  },
+  {
+    "city": "Sydney, Australia",
+    "country": "Australia",
+    "type": "pediatric_clinic",
+    "name": "Sydney Children's Clinic A",
+    "phone": "",
+    "address": "Sydney, Australia",
+    "lat": -33.868924,
+    "lng": 151.217612,
+    "speaks_english": true
+  },
+  {
+    "city": "Sydney, Australia",
+    "country": "Australia",
+    "type": "pediatric_clinic",
+    "name": "Sydney Children's Clinic B",
+    "phone": "",
+    "address": "Sydney, Australia",
+    "lat": -33.862699,
+    "lng": 151.209292,
+    "speaks_english": true
+  },
+  {
+    "city": "Sydney, Australia",
+    "country": "Australia",
+    "type": "24h_pharmacy",
+    "name": "Sydney 24h Pharmacy",
+    "phone": "",
+    "address": "Sydney, Australia",
+    "lat": -33.861427,
+    "lng": 151.209934,
+    "speaks_english": true
+  },
+  {
+    "city": "Toronto, Canada",
+    "country": "Canada",
+    "type": "pediatric_clinic",
+    "name": "Toronto Children's Clinic A",
+    "phone": "",
+    "address": "Toronto, Canada",
+    "lat": 43.658039,
+    "lng": -79.373383,
+    "speaks_english": true
+  },
+  {
+    "city": "Toronto, Canada",
+    "country": "Canada",
+    "type": "pediatric_clinic",
+    "name": "Toronto Children's Clinic B",
+    "phone": "",
+    "address": "Toronto, Canada",
+    "lat": 43.648326,
+    "lng": -79.378158,
+    "speaks_english": true
+  },
+  {
+    "city": "Toronto, Canada",
+    "country": "Canada",
+    "type": "24h_pharmacy",
+    "name": "Toronto 24h Pharmacy",
+    "phone": "",
+    "address": "Toronto, Canada",
+    "lat": 43.64623,
+    "lng": -79.383867,
+    "speaks_english": true
+  },
+  {
+    "city": "Vancouver, Canada",
+    "country": "Canada",
+    "type": "pediatric_clinic",
+    "name": "Vancouver Children's Clinic A",
+    "phone": "",
+    "address": "Vancouver, Canada",
+    "lat": 49.278376,
+    "lng": -123.111267,
+    "speaks_english": true
+  },
+  {
+    "city": "Vancouver, Canada",
+    "country": "Canada",
+    "type": "pediatric_clinic",
+    "name": "Vancouver Children's Clinic B",
+    "phone": "",
+    "address": "Vancouver, Canada",
+    "lat": 49.279015,
+    "lng": -123.130535,
+    "speaks_english": true
+  },
+  {
+    "city": "Vancouver, Canada",
+    "country": "Canada",
+    "type": "24h_pharmacy",
+    "name": "Vancouver 24h Pharmacy",
+    "phone": "",
+    "address": "Vancouver, Canada",
+    "lat": 49.288663,
+    "lng": -123.112735,
+    "speaks_english": true
+  },
+  {
+    "city": "Amsterdam, Netherlands",
+    "country": "Netherlands",
+    "type": "pediatric_clinic",
+    "name": "Amsterdam Children's Clinic A",
+    "phone": "",
+    "address": "Amsterdam, Netherlands",
+    "lat": 52.36247,
+    "lng": 4.911465,
+    "speaks_english": true
+  },
+  {
+    "city": "Amsterdam, Netherlands",
+    "country": "Netherlands",
+    "type": "pediatric_clinic",
+    "name": "Amsterdam Children's Clinic B",
+    "phone": "",
+    "address": "Amsterdam, Netherlands",
+    "lat": 52.370404,
+    "lng": 4.899437,
+    "speaks_english": true
+  },
+  {
+    "city": "Amsterdam, Netherlands",
+    "country": "Netherlands",
+    "type": "24h_pharmacy",
+    "name": "Amsterdam 24h Pharmacy",
+    "phone": "",
+    "address": "Amsterdam, Netherlands",
+    "lat": 52.375191,
+    "lng": 4.905066,
+    "speaks_english": true
+  },
+  {
+    "city": "Zurich, Switzerland",
+    "country": "Switzerland",
+    "type": "pediatric_clinic",
+    "name": "Zurich Children's Clinic A",
+    "phone": "",
+    "address": "Zurich, Switzerland",
+    "lat": 47.370018,
+    "lng": 8.537899,
+    "speaks_english": true
+  },
+  {
+    "city": "Zurich, Switzerland",
+    "country": "Switzerland",
+    "type": "pediatric_clinic",
+    "name": "Zurich Children's Clinic B",
+    "phone": "",
+    "address": "Zurich, Switzerland",
+    "lat": 47.372413,
+    "lng": 8.55148,
+    "speaks_english": true
+  },
+  {
+    "city": "Zurich, Switzerland",
+    "country": "Switzerland",
+    "type": "24h_pharmacy",
+    "name": "Zurich 24h Pharmacy",
+    "phone": "",
+    "address": "Zurich, Switzerland",
+    "lat": 47.384755,
+    "lng": 8.535638,
+    "speaks_english": true
+  },
+  {
+    "city": "Vienna, Austria",
+    "country": "Austria",
+    "type": "pediatric_clinic",
+    "name": "Vienna Children's Clinic A",
+    "phone": "",
+    "address": "Vienna, Austria",
+    "lat": 48.217657,
+    "lng": 16.375053,
+    "speaks_english": true
+  },
+  {
+    "city": "Vienna, Austria",
+    "country": "Austria",
+    "type": "pediatric_clinic",
+    "name": "Vienna Children's Clinic B",
+    "phone": "",
+    "address": "Vienna, Austria",
+    "lat": 48.207855,
+    "lng": 16.370963,
+    "speaks_english": true
+  },
+  {
+    "city": "Vienna, Austria",
+    "country": "Austria",
+    "type": "24h_pharmacy",
+    "name": "Vienna 24h Pharmacy",
+    "phone": "",
+    "address": "Vienna, Austria",
+    "lat": 48.200265,
+    "lng": 16.367039,
+    "speaks_english": true
+  },
+  {
+    "city": "Lisbon, Portugal",
+    "country": "Portugal",
+    "type": "pediatric_clinic",
+    "name": "Lisbon Children's Clinic A",
+    "phone": "",
+    "address": "Lisbon, Portugal",
+    "lat": 38.729032,
+    "lng": -9.146685,
+    "speaks_english": true
+  },
+  {
+    "city": "Lisbon, Portugal",
+    "country": "Portugal",
+    "type": "pediatric_clinic",
+    "name": "Lisbon Children's Clinic B",
+    "phone": "",
+    "address": "Lisbon, Portugal",
+    "lat": 38.720897,
+    "lng": -9.137993,
+    "speaks_english": true
+  },
+  {
+    "city": "Lisbon, Portugal",
+    "country": "Portugal",
+    "type": "24h_pharmacy",
+    "name": "Lisbon 24h Pharmacy",
+    "phone": "",
+    "address": "Lisbon, Portugal",
+    "lat": 38.713884,
+    "lng": -9.139374,
+    "speaks_english": true
+  },
+  {
+    "city": "Prague, Czechia",
+    "country": "Czechia",
+    "type": "pediatric_clinic",
+    "name": "Prague Children's Clinic A",
+    "phone": "",
+    "address": "Prague, Czechia",
+    "lat": 50.077109,
+    "lng": 14.432757,
+    "speaks_english": true
+  },
+  {
+    "city": "Prague, Czechia",
+    "country": "Czechia",
+    "type": "pediatric_clinic",
+    "name": "Prague Children's Clinic B",
+    "phone": "",
+    "address": "Prague, Czechia",
+    "lat": 50.066522,
+    "lng": 14.431585,
+    "speaks_english": true
+  },
+  {
+    "city": "Prague, Czechia",
+    "country": "Czechia",
+    "type": "24h_pharmacy",
+    "name": "Prague 24h Pharmacy",
+    "phone": "",
+    "address": "Prague, Czechia",
+    "lat": 50.077562,
+    "lng": 14.447569,
+    "speaks_english": true
+  },
+  {
+    "city": "Hong Kong, China",
+    "country": "China (HK SAR)",
+    "type": "pediatric_clinic",
+    "name": "Hong Kong Children's Clinic A",
+    "phone": "",
+    "address": "Hong Kong, China",
+    "lat": 22.310225,
+    "lng": 114.162916,
+    "speaks_english": true
+  },
+  {
+    "city": "Hong Kong, China",
+    "country": "China (HK SAR)",
+    "type": "pediatric_clinic",
+    "name": "Hong Kong Children's Clinic B",
+    "phone": "",
+    "address": "Hong Kong, China",
+    "lat": 22.310486,
+    "lng": 114.17461,
+    "speaks_english": true
+  },
+  {
+    "city": "Hong Kong, China",
+    "country": "China (HK SAR)",
+    "type": "24h_pharmacy",
+    "name": "Hong Kong 24h Pharmacy",
+    "phone": "",
+    "address": "Hong Kong, China",
+    "lat": 22.314467,
+    "lng": 114.17473,
+    "speaks_english": true
+  }
+]
